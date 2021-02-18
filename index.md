@@ -6,16 +6,14 @@ Advances in deep learning allow for accurate real-time pose estimation[1][2][3]w
 
 # Problem definition
 
-The targeting system will require accurate real-time identification of the subject’s entire skeletal frame, single target isolation, accurate distance measurement to the target, and accurate aiming.
-
-# Introduction
-
 The architecture of the security system described in this paper has 3 distinct functions: (1) threat detection, (2) targeting, and (3) threat neutralization.  In systems meant only for deterrence, this last function may not exist.
 
 Threat detection may be as simple as a perimeter violation where some unidentified individual crosses a predefined boundary into a controlled area.   However, it may be much more sophisticated where a weapon is detected in the hand of an individual by the threat detection module.  Ideally, this module would be sufficiently intelligent to differentiate between friendlies and hostiles carrying weapons.
 
 The targeting function performs has two purposes.  First, realization by an individual that he is being actively targeted may sufficient deterrence that no further action is required.  Second, in systems where threat neutralization exists as a function the targeting also performs aiming for the discharge of rubber bullets.
-Threat neutralization for this system is envisioned as using rubber bullets.  The purpose of the targeting system is to not only aim the rubber bullet, but more specifically aim the bullet to disable and not permanently injure.  The target would be the lower body extremities.
+Threat neutralization for this system is envisioned as using rubber bullets.  The purpose of the targeting system is to not only aim the rubber bullet, but more specifically aim the bullet a the lower body extremeties to disable and not permanently injure.  
+
+The targeting system will require accurate real-time identification of the subject’s entire skeletal frame, single target isolation, accurate distance measurement to the target, and accurate aiming.
 
 # Methods
 
