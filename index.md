@@ -42,7 +42,8 @@ This project incorporates both recent advances in deep learning applied to real-
 2.    J. Huang et al., “Speed/accuracy trade-offs for modern convolutional object detectors”, CVPR 2017  
 3.    Z. Cao, T. Simon, S.-E. Wei, Y. Sheikh, “Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields”, CVPR 2017
 4.    V. Bazarevsky, I. Grishchenko, https://ai.googleblog.com/2020/08/on-device-real-time-body-pose-tracking.html
-5.    
+
+
 [edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md) 
 
 
