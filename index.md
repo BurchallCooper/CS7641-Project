@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Combining Laser Designated Targeting and Deep Learned Stereo Human Pose Estimation to Enable non-Lethal Threat Deterrence and Neutralization
 
 You can use the [editor on GitHub](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
