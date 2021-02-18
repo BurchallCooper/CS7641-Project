@@ -18,8 +18,6 @@ Threat neutralization for this system is envisioned as using rubber bullets.  Th
 This work will use deep learned pose estimation techniques to capture the human pose skeletons of multiple subjects within the camera’s view.  The pose estimation will result in a set of connected two dimensional coordinates for each person detected.   Stereography coupled with non-supervised learning techniques will then augment this data with depth information for each subject.  
 
 A 532 nm laser will perform the targeting.   The system will have a second set of stereographic cameras outfitted with 532 nm bandpass filters to filter out ambient light and allow detection of the targeted portion of the human pose skeleton.
-
-![Alt Text](https://1.bp.blogspot.com/-w22Iw7BRZsg/XzWx-S7DtpI/AAAAAAAAGZg/zgpN2e5Oye8qPXfq0zLq6dm38afXaUa8gCLcBGAsYHQ/s1999/image4%2B%25281%2529.jpg)
 ![Alt Text](https://1.bp.blogspot.com/-nsLiFUVt6S4/XzVpLWay6VI/AAAAAAAAGXI/oPyuvuQEFcASODqPdT9dqptyUvUuGlTvACLcBGAsYHQ/s427/image3.gif)
 
 ## Potential results
