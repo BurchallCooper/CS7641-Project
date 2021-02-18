@@ -25,7 +25,7 @@ A 532 nm laser will perform the targeting.   The system will have a second set o
 </p>
 
 <p align="center">
- *Figure 2: Google's MediaPipe Pose Estimation[4]*
+ Figure 2: Google's MediaPipe Pose Estimation[4]
 </p>
 
 ## Potential results
@@ -41,7 +41,8 @@ This project incorporates both recent advances in deep learning applied to real-
 1.    G. Papandreou, T. Zhu, N. Kanazawa, A. Toshev, J. Tompson, C. Bregler, K. Murphy, Towards Accurate Multi-Person Pose Estimation in the Wild, Proceedings of the IEEE      Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 4903-4911
 2.    J. Huang et al., “Speed/accuracy trade-offs for modern convolutional object detectors”, CVPR 2017  
 3.    Z. Cao, T. Simon, S.-E. Wei, Y. Sheikh, “Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields”, CVPR 2017
-
+4.    V. Bazarevsky, I. Grishchenko, https://ai.googleblog.com/2020/08/on-device-real-time-body-pose-tracking.html
+5.    
 [edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md) 
 
 
