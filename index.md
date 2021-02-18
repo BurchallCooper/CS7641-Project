@@ -25,7 +25,7 @@ A 532 nm laser will perform the targeting.   The system will have a second set o
 </p>
 
 <p align="center">
- *The Amazon Rainforest contains a multitude of species.*
+ *Figure 2: Google's MediaPipe Pose Estimation[4]*
 </p>
 
 ## Potential results
