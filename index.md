@@ -19,7 +19,8 @@ This work will use deep learned pose estimation techniques to capture the human 
 
 A 532 nm laser will perform the targeting.   The system will have a second set of stereographic cameras outfitted with 532 nm bandpass filters to filter out ambient light and allow detection of the targeted portion of the human pose skeleton.
 
-![Alt Text](https://1.bp.blogspot.com/-3y9qZTiQ-Xg/XzVsslu98RI/AAAAAAAAGXg/hpkLt16_qmoeqtdW1NBlryODgA-6Wq-RACLcBGAsYHQ/s427/Image2.gif)
+![Alt Text](https://1.bp.blogspot.com/-w22Iw7BRZsg/XzWx-S7DtpI/AAAAAAAAGZg/zgpN2e5Oye8qPXfq0zLq6dm38afXaUa8gCLcBGAsYHQ/s1999/image4%2B%25281%2529.jpg)
+![Alt Text](https://1.bp.blogspot.com/-nsLiFUVt6S4/XzVpLWay6VI/AAAAAAAAGXI/oPyuvuQEFcASODqPdT9dqptyUvUuGlTvACLcBGAsYHQ/s427/image3.gif)
 
 ## Potential results
 
