@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Advances in deep learning allow for accurate real-time pose estimation[1][2][3]which can be applied to security applications for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.   A security system is envisioned that has three key components: threat detection, targeting, and threat neutralization.    This paper will assume a full system implementation but focuses primarily on the targeting aspect of the design that uses deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  A proof of concept is implemented for this targeting system.
+Advances in deep learning allow for accurate real-time pose estimation[1][2][3]which can be applied to security applications for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This paper will assume a full system implementation but focuses primarily on the targeting aspect of the design that uses deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  A proof of concept is implemented for this targeting system.
 
 ## Problem definition
 
