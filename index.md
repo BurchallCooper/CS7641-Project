@@ -13,8 +13,6 @@ Threat detection may be as simple as a perimeter violation where some unidentifi
 The targeting function performs has two purposes.  First, realization by an individual that he is being actively targeted may sufficient deterrence that no further action is required.  Second, in systems where threat neutralization exists as a function the targeting also performs aiming for the discharge of rubber bullets.
 Threat neutralization for this system is envisioned as using rubber bullets.  The purpose of the targeting system is to not only aim the rubber bullet, but more specifically aim the bullet a the lower body extremeties to disable and not permanently injure.  
 
-The targeting system will require accurate real-time identification of the subject’s entire skeletal frame, single target isolation, accurate distance measurement to the target, and accurate aiming.
-
 # Methods
 
 This work will use deep learned pose estimation techniques to capture the human pose skeletons of multiple subjects within the camera’s view.  The pose estimation will result in a set of connected two dimensional coordinates for each person detected.   Stereography coupled with non-supervised learning techniques will then augment this data with depth information for each subject.  
@@ -24,9 +22,10 @@ A 532 nm laser will perform the targeting.   The system will have a second set o
 # Potential results
 
 The proof of concept will demonstrate the feasibility of the targeting portion of the system.   In real time the detected human pose skeletons in the camera view will be shown as an overlay to the subject.  The specific subject targeted area of the subject will be identified in the image and the distance to the subject displayed.
-Discussion
 
-This project incorporates both recent advances in deep learning applied to real-time human pose estimation, and classical techniques for unsupervised learning to implement targeting for a complex security system.  
+# Discussion
+
+This project incorporates both recent advances in deep learning applied to real-time human pose estimation, and classical techniques for unsupervised learning to implement targeting for a complex security system.  The targeting system will require accurate real-time identification of the subject’s entire skeletal frame, single target isolation, accurate distance measurement to the target, and accurate aiming.
 
 # References
 
