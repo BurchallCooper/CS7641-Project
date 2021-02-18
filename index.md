@@ -22,8 +22,10 @@ A 532 nm laser will perform the targeting.   The system will have a second set o
 
 <p align="center">
   <img src="https://1.bp.blogspot.com/-nsLiFUVt6S4/XzVpLWay6VI/AAAAAAAAGXI/oPyuvuQEFcASODqPdT9dqptyUvUuGlTvACLcBGAsYHQ/s427/image3.gif" alt="Pose Estimation" >
-  
-  *The Amazon Rainforest contains a multitude of species.*
+</p>
+
+<p align="center">
+ *The Amazon Rainforest contains a multitude of species.*
 </p>
 
 ## Potential results
