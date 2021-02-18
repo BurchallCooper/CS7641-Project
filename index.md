@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Advances in deep learning allow for accurate real-time pose estimation[1][2][3]which can be applied to security applications for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This paper will assume a full system implementation but focuses primarily on the targeting aspect of the design that uses deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  A proof of concept is implemented for this targeting system.
+Advances in deep learning allow for accurate real-time pose estimation[1][2][3]which can be applied to security applications for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This project will breifly describes a full system implementation but focuses primarily on the targeting implemenation of the system which uses deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  A proof of concept is implemented for this targeting system.
 
 ## Problem definition
 
@@ -11,11 +11,12 @@ The architecture of the security system described in this paper has 3 distinct f
 Threat detection may be as simple as a perimeter violation where some unidentified individual crosses a predefined boundary into a controlled area.   However, it may be much more sophisticated where a weapon is detected in the hand of an individual by the threat detection module.  Ideally, this module would be sufficiently intelligent to differentiate between friendlies and hostiles carrying weapons.
 
 The targeting function performs has two purposes.  First, realization by an individual that he is being actively targeted may sufficient deterrence that no further action is required.  Second, in systems where threat neutralization exists as a function the targeting also performs aiming for the discharge of rubber bullets.
+
 Threat neutralization for this system is envisioned as using rubber bullets.  The purpose of the targeting system is to not only aim the rubber bullet, but more specifically aim the bullet a the lower body extremeties to disable and not permanently injure.  
 
 ## Methods
 
-This work will use deep learned pose estimation techniques to capture the human pose skeletons of multiple subjects within the camera’s view.  The pose estimation will result in a set of connected two dimensional coordinates for each person detected.   Stereography coupled with non-supervised learning techniques will then augment this data with depth information for each subject.  
+This work will use deep learned pose estimation techniques to capture the human pose skeletons of multiple subjects within the camera’s view similar to Figure 2.  The pose estimation will result in a set of connected two dimensional coordinates for each person detected.   Stereography coupled with non-supervised learning techniques will then augment this data with depth information for each subject.  
 
 A 532 nm laser will perform the targeting.   The system will have a second set of stereographic cameras outfitted with 532 nm bandpass filters to filter out ambient light and allow detection of the targeted portion of the human pose skeleton.
 
