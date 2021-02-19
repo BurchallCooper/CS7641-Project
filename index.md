@@ -2,14 +2,7 @@
 
 ## Introduction
 
-Advances in deep learning allow for accurate real-time pose estimation[1][2][3]which can be applied to security applications for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This project will describe the full system implementation focusing primarily on the targeting design of the system using deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  A proof of concept is implemented for this targeting system as shown in illustrated in Figure 1.
-
-<p align="center">
- <img src="https://github.com/BurchallCooper/CS7641-Project/blob/main/System.png" width=400 alt="Pose Estimation" >
-</p>
-<p align="center">
- Figure 1: System Proof of Concept
-</p>
+Advances in deep learning allow for accurate real-time pose estimation[1][2][3]which can be applied to security applications for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This project will describe the full system implementation focusing primarily on the targeting design of the system using deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  
 
 ## Problem definition
 
@@ -23,7 +16,7 @@ Threat neutralization for discussion purposes in this project is envisioned as u
 
 ## Methods
 
-This work will use deep learned pose estimation techniques to capture the human pose skeletons of multiple subjects within the camera’s view similar to Figure 2.  The pose estimation will result in a set of connected two dimensional coordinates for each person detected.   Stereography coupled with non-supervised learning techniques will then augment this data with depth information for each subject.  
+This work will use deep learned pose estimation techniques to capture the human pose skeletons of multiple subjects within the camera’s view similar to Figure 1.  The pose estimation will result in a set of connected two dimensional coordinates for each person detected.   Stereography coupled with non-supervised learning techniques will then augment this data with depth information for each subject.  
 
 A 532 nm laser will perform the targeting.   The system will have a second set of stereographic cameras outfitted with 532 nm bandpass filters to filter out ambient light and allow detection of the targeted portion of the human pose skeleton.
 
@@ -32,12 +25,19 @@ A 532 nm laser will perform the targeting.   The system will have a second set o
 </p>
 
 <p align="center">
- Figure 2: Google's MediaPipe Pose Estimation[4]
+ Figure 1: Google's MediaPipe Pose Estimation[4]
 </p>
 
 ## Potential results
 
-The proof of concept will demonstrate the feasibility of the targeting portion of the system.   In real time the detected human pose skeletons in the camera view will be shown as an overlay to the subject.  The specific subject targeted area of the subject will be identified in the image and the distance to the subject displayed.
+The proof of concept will demonstrate the feasibility of the targeting portion of the system.   In real time the detected human pose skeletons in the camera view will be shown as an overlay to the subject.  The specific subject targeted area of the subject will be identified in the image and the distance to the subject displayed.  A proof of concept is implemented for this targeting system as shown in illustrated in Figure 2.
+
+<p align="center">
+ <img src="https://github.com/BurchallCooper/CS7641-Project/blob/main/System.png" width=400 alt="System Proof of Concept" >
+</p>
+<p align="center">
+ Figure 2: System Proof of Concept
+</p>
 
 ## Discussion
 
