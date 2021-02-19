@@ -18,6 +18,10 @@ The targeting function performs has two purposes.  Realization by an individual 
 
 Threat neutralization for discussion purposes in this project is envisioned as using rubber bullets.  The purpose of the targeting system is to not only to aim the rubber bullet, but more specifically aim the bullet a the lower body extremeties to disable and not permanently injure.  
 
+<p align="center">
+  <img src="System.png" alt="Pose Estimation" >
+</p>
+
 ## Methods
 
 This work will use deep learned pose estimation techniques to capture the human pose skeletons of multiple subjects within the camera’s view similar to Figure 2.  The pose estimation will result in a set of connected two dimensional coordinates for each person detected.   Stereography coupled with non-supervised learning techniques will then augment this data with depth information for each subject.  
