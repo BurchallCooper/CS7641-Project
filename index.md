@@ -19,7 +19,7 @@ The targeting function performs has two purposes.  Realization by an individual 
 Threat neutralization for discussion purposes in this project is envisioned as using rubber bullets.  The purpose of the targeting system is to not only to aim the rubber bullet, but more specifically aim the bullet a the lower body extremeties to disable and not permanently injure.  
 
 <p align="center">
-<img src="https://github.com/BurchallCooper/CS7641-Project/blob/main/System.png" alt="Pose Estimation" >
+<img src="https://github.com/BurchallCooper/CS7641-Project/blob/main/System.png" width=200 alt="Pose Estimation" >
 </p>
 
 ## Methods
