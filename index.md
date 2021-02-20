@@ -22,14 +22,7 @@ A 532 nm laser will perform the targeting.   The system will have a second set o
 
 ## Potential results
 
-The proof of concept will demonstrate the feasibility of the targeting portion of the system.   In real time the detected human pose skeletons in the camera view will be shown as an overlay to the subject.  The specific subject targeted area of the subject will be identified in the image and the distance to the subject displayed.  A proof of concept is implemented for this targeting system as shown in illustrated in Figure 2.
-
-<p align="center">
- <img src="https://github.com/BurchallCooper/CS7641-Project/blob/main/System.png" width=400 alt="System Proof of Concept" >
-</p>
-<p align="center">
- Figure 2: System Proof of Concept
-</p>
+The proof of concept will demonstrate the feasibility of the targeting portion of the system.   In real time the detected human pose skeletons in the camera view will be shown as an overlay to the subject.  The specific subject targeted area of the subject will be identified in the image and the distance to the subject displayed.  A proof of concept is implemented for the targeting system.
 
 ## Discussion
 
