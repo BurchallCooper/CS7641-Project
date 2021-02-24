@@ -34,6 +34,6 @@ This project incorporates both recent advances in deep learning applied to real-
 4.    V. Bazarevsky, I. Grishchenko, https://ai.googleblog.com/2020/08/on-device-real-time-body-pose-tracking.html
 
 
-[edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md)   
+[edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md)    
 
 
