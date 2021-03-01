@@ -1,4 +1,4 @@
-# Combining Laser Designated Targeting and Deep Learned Stereo Human Pose Estimation to Enable non-Lethal Threat Deterrence and Neutralization
+# Deep Learned Stereo Human Pose Estimation and Laser Designation for a non-Lethal Targeting System
 
 ## Introduction
 
