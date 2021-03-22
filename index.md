@@ -13,6 +13,9 @@ Threat detection may be as simple as a perimeter violation where some unidentifi
 The targeting function performs has two purposes.  Realization by an individual that he is being actively targeted may sufficient deterrence that no further action is required.  However, in systems where threat neutralization is implemented as a function the targeting laser aims some type of non-lethal weapon for threat neutralization. 
 
 Threat neutralization for discussion purposes in this project is envisioned as using rubber bullets.  The purpose of the targeting system is to not only to aim the rubber bullet, but more specifically aim the bullet at the lower body extrimeties to disable and not permanently injure.  
+$$
+![image](https://user-images.githubusercontent.com/6483635/112057275-748c2f00-8b2f-11eb-8f3c-e79d6d50da2e.png)
+$$
 
 ## Methods
 
