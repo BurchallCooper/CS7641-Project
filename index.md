@@ -73,7 +73,7 @@ The test setup consisted of the 4 cameras mounted as shown in Figure 6.  A manne
 
 The baseline for the project will be to implement non-real-time ranging with the Stereo Human Pose Estimation Dataset, SHPED. The stretch goal will add targeting to the system.   In real time the detected human pose skeletons in the camera view will be shown as an overlay to the subjects.  The subject's targeted skeletal region will be identified in the image and the distance to the subject displayed.  
 
-<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="Targeting" height="400" width="400" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="Targeting" height="800" width="800" /></p>
 <p align="center"> Figure 7: Example of Targeting </p> 
 
 ![Alt Text](https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif)
@@ -88,9 +88,3 @@ This project incorporates both recent advances in deep learning applied to real-
 2.    J. Huang et al., “Speed/accuracy trade-offs for modern convolutional object detectors”, CVPR 2017  
 3.    Z. Cao, T. Simon, S.-E. Wei, Y. Sheikh, “Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields”, CVPR 2017
 4.    V. Bazarevsky, I. Grishchenko, https://ai.googleblog.com/2020/08/on-device-real-time-body-pose-tracking.html
-
-
-[edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md)    
- 
-
-
