@@ -76,6 +76,8 @@ The baseline for the project will be to implement non-real-time ranging with the
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="Targeting" height="400" width="400" /></p>
 <p align="center"> Figure 7: Example of Targeting </p> 
 
+![Alt Text](https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif)
+
 ## Discussion
 
 This project incorporates both recent advances in deep learning applied to real-time human pose estimation, and classical techniques for unsupervised learning to implement targeting for a complex security system.  The targeting system will require accurate real-time identification of the subject’s entire skeletal frame, single target isolation, accurate distance measurement to the target, and accurate aiming.
@@ -90,5 +92,5 @@ This project incorporates both recent advances in deep learning applied to real-
 
 [edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md)    
  
-![image](https://user-images.githubusercontent.com/6483635/112152775-08560d80-8bb9-11eb-85e9-ce0f0b63f06f.png)
+
 
