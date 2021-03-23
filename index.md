@@ -56,7 +56,7 @@ The pose estimation component of our system predicts the location of all 33 pers
 The network consists a a combined heatmap, offset, and regression ap- proach, as shown in Figure 4. We use the heatmap and offset loss only in the training stage and remove the correspond- ing output layers from the model before running the infer- ence. Thus, we effectively use the heatmap to supervise the lightweight embedding, which is then utilized by the regres- sion encoder network. This approach is partially inspired by Stacked Hourglass approach of Newell et al. [9], but in our case, we stack a tiny encoder-decoder heatmap-based net- work and a subsequent regression encoder network.  
 We actively utilize skip-connections between all the stages of the network to achieve a balance between high- and low-level features. However, the gradients from the regression encoder are not propagated back to the heatmap- trained features (note the gradient-stopping connections in Figure 4). We have found this to not only improve the heatmap predictions, but also substantially increase the co- ordinate regression accuracy. 
 
-p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/SystemArchitecture.png" alt="system drawing" height="400" width="400" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/SystemArchitecture.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 5: Network Architecture </p>  
 
 ## Results
