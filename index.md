@@ -73,7 +73,7 @@ The test setup consisted of the 4 cameras mounted as shown in Figure 6.  A manne
 
 The baseline for the project will be to implement non-real-time ranging with the Stereo Human Pose Estimation Dataset, SHPED. The stretch goal will add targeting to the system.   In real time the detected human pose skeletons in the camera view will be shown as an overlay to the subjects.  The subject's targeted skeletal region will be identified in the image and the distance to the subject displayed.  
 
-<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="system drawing" height="400" width="400" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="Targeting" height="400" width="400" /></p>
 <p align="center"> Figure 7: Example of Targeting </p> 
 
 ## Discussion
@@ -90,4 +90,5 @@ This project incorporates both recent advances in deep learning applied to real-
 
 [edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md)    
  
+![image](https://user-images.githubusercontent.com/6483635/112152775-08560d80-8bb9-11eb-85e9-ce0f0b63f06f.png)
 
