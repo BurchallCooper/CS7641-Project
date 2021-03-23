@@ -42,5 +42,5 @@ This project incorporates both recent advances in deep learning applied to real-
 
 
 [edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md)    
-
+ 
 
