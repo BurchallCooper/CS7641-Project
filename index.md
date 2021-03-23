@@ -2,7 +2,26 @@
 
 ## Introduction
 
-Advances in deep learning allow for accurate real-time pose estimation[1][2][3]which can be applied to security applications for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This project will describe the full system implementation focusing primarily on the targeting design of the system using deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  
+Advances in deep learning allow for accurate real-time pose estimation[1][2][3] which can be applied to security applications for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This project will describe the full system implementation focusing primarily on the targeting design of the system using deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  
+The architecture of the security system described in this paper has 3 distinct functions: (1) threat detection, (2) targeting, and (3) threat neutralization.
+
+Threat Detection
+
+Threat detection may be as simple as a perimeter violation where some unidentified individual crosses a predefined boundary into a controlled area.   However, it may be much more sophisticated where a weapon is detected in the hand of an individual by the threat detection module.  Ideally, this module would be sufficiently intelligent to differentiate between friendlies and hostiles carrying weapons.  
+
+Targeting
+
+The purpose of the targeting system is to aim a non-lethal weapon for threat neutralization.  The targeting system must be sufficiently accurate to only to aim the weapon to disable and not permanently injure.  Of primary concern is avoiding sensitive areas such as the eyes.
+Threat Neutralization
+Threat neutralization is achieved in two ways.  Realization by an individual that he is being actively targeted (in our system with a laser) may provide sufficient deterrence that no further action is required.    However, in systems where threat neutralization is implemented as a non-lethal weapon the targeting laser aims the weapon.  The weapon proposed for this system would fire rubber bullets.
+
+Overview:
+
+<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/System.png" alt="system drawing" height="400" width="400" class="center" /></p>
+
+Figure 1 illustrates the system architecture.  Two sets of cameras are used.  One set is for stereo pose estimation to provide ranging for the vision system, and the second set is outfitted with optical bandpass filters centered at the laser frequency to filter out ambient light.  The second set also provides ranging data and control of the weapon’s gimble.  The 532 nm targeting laser is mounted to the barrel of the weapon. 
+
+This approach allows for the cameras to be mounted on a stationary platform and only the targeting laser and weapon to move for targeting.  The advantage is the sensitive camera equipment is protected, but at the expense of making the system more complicated.  
 
 ## Problem definition
 
@@ -14,7 +33,7 @@ The targeting function performs has two purposes.  Realization by an individual 
 
 Threat neutralization for discussion purposes in this project is envisioned as using rubber bullets.  The purpose of the targeting system is to not only to aim the rubber bullet, but more specifically aim the bullet at the lower body extrimeties to disable and not permanently injure.  
 
-<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/System.png" alt="system drawing" height="400" width="400" class="center" /></p>
+
 
 ## Methods
 
