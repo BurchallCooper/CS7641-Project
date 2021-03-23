@@ -13,7 +13,9 @@ Threat detection may be as simple as a perimeter violation where some unidentifi
 ### Targeting
 
 The purpose of the targeting system is to aim a non-lethal weapon for threat neutralization.  The targeting system must be sufficiently accurate to only to aim the weapon to disable and not permanently injure.  Of primary concern is avoiding sensitive areas such as the eyes.
-Threat Neutralization
+
+### Threat Neutralization
+
 Threat neutralization is achieved in two ways.  Realization by an individual that he is being actively targeted (in our system with a laser) may provide sufficient deterrence that no further action is required.    However, in systems where threat neutralization is implemented as a non-lethal weapon the targeting laser aims the weapon.  The weapon proposed for this system would fire rubber bullets.
 
 ### Overview:
