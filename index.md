@@ -66,7 +66,7 @@ This dataset provides stereo image pairs in a wide range of variations in appear
 
 The test setup consisted of the 4 cameras mounted as shown in Figure 6.  A mannequin was used for calibration and test of the system.
 
-<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/TestSetup.png" alt="system drawing" height="400" width="400" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/TestSetup.jpg" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 6: Test Setup </p> 
 
 ## Results
