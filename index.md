@@ -22,14 +22,24 @@ Figure 1 illustrates the system architecture.  Two sets of cameras are used.  On
 This approach allows for the cameras to be mounted on a stationary platform and only the targeting laser and weapon to move for targeting.  The advantage is the sensitive camera equipment is protected, but at the expense of making the system more complicated.  
 
 ## Problem definition
+The operation of the system is as follows:
+1.	Each vision camera simultaneously captures the image of the target
+2.	Human skeletal poses are extracted from the stereo images
+3.	The images are grouped in pairs using non-supervised learning 
+4.	The disparity between each skeletal component in the image pairs allows the distance to that skeletal component to be calculated. (See Figure 2 below for stereo depth calculation)
 
-The architecture of the security system described in this paper has 3 distinct functions: (1) threat detection, (2) targeting, and (3) threat neutralization.  
+Similarly, for the laser cameras:
+1.	Each laser camera simultaneously captures the image of the target
+2.	The laser target is detected in the image
+3.	The disparity between the laser target in each image allows the distance to the target to be calculated
 
-Threat detection may be as simple as a perimeter violation where some unidentified individual crosses a predefined boundary into a controlled area.   However, it may be much more sophisticated where a weapon is detected in the hand of an individual by the threat detection module.  Ideally, this module would be sufficiently intelligent to differentiate between friendlies and hostiles carrying weapons.  
+We then have 3-d coordinate data for each skeletal component and 3-d coordinate data for the laser target.  The control system minimizes the error between vision and laser coordinates by controlling the gimbal and the target is thus acquired.
 
-The targeting function performs has two purposes.  Realization by an individual that he is being actively targeted may sufficient deterrence that no further action is required.  However, in systems where threat neutralization is implemented as a function the targeting laser aims some type of non-lethal weapon for threat neutralization. 
+<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/StereoEquation.png" alt="system drawing" height="400" width="400" /></p>
+<p align="center"> Figure 2: Stereo Equation Derivation </p>
+ 
+The primary challenge in this architecture is implementing the target detection and human skeletal pose estimation.  For this project, BlazePose[?], a convolutional neural network architected for human pose estimation, developed by Google was selected to provide the pose estimations for each of the stereo camera pairs.  This solution is tailored for real-time inference and requires minimal computational resources.  During inference, the algorithm produces 33 body keypoints for a single person.  For this project 2 instances of the algorithm must generate over 30 frames per second in real-time.
 
-Threat neutralization for discussion purposes in this project is envisioned as using rubber bullets.  The purpose of the targeting system is to not only to aim the rubber bullet, but more specifically aim the bullet at the lower body extrimeties to disable and not permanently injure.  
 
 
 
