@@ -42,7 +42,6 @@ The primary challenge in this architecture is implementing the target detection 
 
 ## Methods
 
-Architecture
 During inference, we employ a detector-tracker setup (see Figure 1), which shows excellent real-time perfor- mance on a variety of tasks such as hand landmark pre- diction [3] and dense face landmark prediction [6]. Our pipeline consists of a lightweight body pose detector fol- lowed by a pose tracker network. The tracker predicts key- point coordinates, the presence of the person on the cur- rent frame, and the refined region of interest for the current frame. When the tracker indicates that there is no human present, we re-run the detector network on the next frame
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/InferencePipeline.png" alt="system drawing" height="300" width="400" /></p>
@@ -53,11 +52,22 @@ The pose estimation component of our system predicts the location of all 33 pers
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/PosePoints.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 4: Keypoint topology </p>
 
-The network consists a a combined heatmap, offset, and regression ap- proach, as shown in Figure 4. We use the heatmap and offset loss only in the training stage and remove the correspond- ing output layers from the model before running the infer- ence. Thus, we effectively use the heatmap to supervise the lightweight embedding, which is then utilized by the regres- sion encoder network. This approach is partially inspired by Stacked Hourglass approach of Newell et al. [9], but in our case, we stack a tiny encoder-decoder heatmap-based net- work and a subsequent regression encoder network.  
+The network consists a a combined heatmap, offset, and regression ap- proach, as shown in Figure 4. We use the heatmap and offset loss only in the training stage and remove the correspond- ing output layers from the model before running the infer- ence. Thus, we effectively use the heatmap to supervise the lightweight embedding, which is then utilized by the regres- sion encoder network. This approach is partially inspired by Stacked Hourglass approach of Newell et al. [9], but in our case, we stack a tiny encoder-decoder heatmap-based net- work and a subsequent regression encoder network.
+
 We actively utilize skip-connections between all the stages of the network to achieve a balance between high- and low-level features. However, the gradients from the regression encoder are not propagated back to the heatmap- trained features (note the gradient-stopping connections in Figure 4). We have found this to not only improve the heatmap predictions, but also substantially increase the co- ordinate regression accuracy. 
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/SystemArchitecture.png" alt="system drawing" height="400" width="400" /></p>
-<p align="center"> Figure 5: Network Architecture </p>  
+<p align="center"> Figure 5: Network Architecture </p> 
+
+## Data Collection and Neural Network Training
+
+To evaluate our model’s quality, we chose OpenPose [4] as a baseline. To that end, we manually annotated two in- house datasets of 1000 images, each with 1–2 people in the scene. The first dataset, referred to as AR dataset, consist of a wide variety of human poses in the wild, while the sec- ond is comprised of yoga/fitness poses only
+This dataset provides stereo image pairs in a wide range of variations in appearance, clothing, human pose, illumination, image quality, baseline separation of the cameras, and background. 
+
+The test setup consisted of the 4 cameras mounted as shown in Figure 6.  A mannequin was used for calibration and test of the system.
+
+<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/TestSetup.png" alt="system drawing" height="400" width="400" /></p>
+<p align="center"> Figure 6: Test Setup </p> 
 
 ## Results
 
