@@ -13,8 +13,8 @@ The architecture of the security system described in this paper has 3 distinct f
 3. Threat Neutralization. Threat neutralization is achieved in two ways.  Realization by an individual that he is being actively targeted (in our system with a laser) may provide sufficient deterrence that no further action is required.    However, in systems where threat neutralization is implemented as a non-lethal weapon the targeting laser aims the weapon.  The weapon proposed for this system would fire rubber bullets.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/System.png" alt="system drawing" height="400" width="400" class="center" />
-<figcaption>Figure 1: System Design</figcaption>
 </p>
+<p align="center"><figcaption>Figure 1: System Design</figcaption></p>
 
 
 Figure 1 illustrates the system architecture.  Two sets of cameras are used.  One set is for stereo pose estimation to provide ranging for the vision system, and the second set is outfitted with optical bandpass filters centered at the laser frequency to filter out ambient light.  The second set also provides ranging data and control of the weapon’s gimble.  The 532 nm targeting laser is mounted to the barrel of the weapon. 
