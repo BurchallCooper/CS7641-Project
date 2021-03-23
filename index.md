@@ -16,8 +16,6 @@ Threat neutralization for discussion purposes in this project is envisioned as u
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/System.png" alt="system drawing" height="400" width="400" class="center" /></p>
 
-<img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/System.png" alt="system drawing" height="400" width="400" class="center" />
-
 ## Methods
 
 This work will use deep learned pose estimation techniques to capture the human pose skeletons of multiple subjects within the camera’s view.  The pose estimation will result in a set of connected two dimensional coordinates for each person detected.   Stereography coupled with non-supervised learning techniques will then augment this data with depth information for each subject.  The Stereo Human Pose Estimation Dataset, SHPED, will be used for the offline testing with images.  This dataset provides stereo image pairs in a wide range of variations in appearance, clothing, human pose, illumination, image quality, baseline separation of the cameras, and/or background. 
