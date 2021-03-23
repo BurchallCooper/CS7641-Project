@@ -50,7 +50,7 @@ During inference, we employ a detector-tracker setup (see Figure 1), which shows
 
 The pose estimation component of our system predicts the location of all 33 person keypoints, and uses the person alignment proposal provided by the first stage of the pipeline.
 
-p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/PosePoints.png" alt="system drawing" height="400" width="400" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/PosePoints.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 4: Keypoint topology </p>
 
 The network consists a a combined heatmap, offset, and regression ap- proach, as shown in Figure 4. We use the heatmap and offset loss only in the training stage and remove the correspond- ing output layers from the model before running the infer- ence. Thus, we effectively use the heatmap to supervise the lightweight embedding, which is then utilized by the regres- sion encoder network. This approach is partially inspired by Stacked Hourglass approach of Newell et al. [9], but in our case, we stack a tiny encoder-decoder heatmap-based net- work and a subsequent regression encoder network.  
@@ -59,7 +59,7 @@ We actively utilize skip-connections between all the stages of the network to ac
 p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/SystemArchitecture.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 5: Network Architecture </p>  
 
-## Potential results
+## Results
 
 The baseline for the project will be to implement non-real-time ranging with the Stereo Human Pose Estimation Dataset, SHPED. The stretch goal will add targeting to the system.   In real time the detected human pose skeletons in the camera view will be shown as an overlay to the subjects.  The subject's targeted skeletal region will be identified in the image and the distance to the subject displayed.  
 
