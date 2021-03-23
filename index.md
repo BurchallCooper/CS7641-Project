@@ -20,7 +20,7 @@ The architecture of the security system described in this paper has 3 distinct f
  
 <figure>
 <center>
-<img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/System.png" alt="system drawing" height="400" width="400" />
+<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/System.png" alt="system drawing" height="400" width="400" /></p>
 <figcaption>Figure 1: System Design</figcaption>/>
 </figure><center>
 
