@@ -40,9 +40,6 @@ We then have 3-d coordinate data for each skeletal component and 3-d coordinate 
  
 The primary challenge in this architecture is implementing the target detection and human skeletal pose estimation.  For this project, BlazePose[?], a convolutional neural network architected for human pose estimation, developed by Google was selected to provide the pose estimations for each of the stereo camera pairs.  This solution is tailored for real-time inference and requires minimal computational resources.  During inference, the algorithm produces 33 body keypoints for a single person.  For this project 2 instances of the algorithm must generate over 30 frames per second in real-time.
 
-
-
-
 ## Methods
 
 This work will use deep learned pose estimation techniques to capture the human pose skeletons of multiple subjects within the camera’s view.  The pose estimation will result in a set of connected two dimensional coordinates for each person detected.   Stereography coupled with non-supervised learning techniques will then augment this data with depth information for each subject.  The Stereo Human Pose Estimation Dataset, SHPED, will be used for the offline testing with images.  This dataset provides stereo image pairs in a wide range of variations in appearance, clothing, human pose, illumination, image quality, baseline separation of the cameras, and/or background. 
