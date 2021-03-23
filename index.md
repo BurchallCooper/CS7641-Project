@@ -16,7 +16,7 @@ Threat neutralization for discussion purposes in this project is envisioned as u
 
 https://github.com/BurchallCooper/CS7641-Project/blob/main/System.png
 
-![image](https://github.com/BurchallCooper/CS7641-Project/System.png)
+![image](https://github.com/BurchallCooper/CS7641-Project/gh-pages/System.png)
 
 
 ## Methods
