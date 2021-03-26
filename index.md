@@ -42,7 +42,7 @@ The primary challenge in this architecture is implementing the target detection 
 
 ## Methods
 
-During inference, a detector-tracker setup is emplyed (see Figure 1), which has good real-time performance on a variety of tasks such as hand landmark prediction[3] and dense face landmark prediction[6]. Our pipeline consists of a lightweight body pose detector followed by a pose tracker network. The tracker predicts keypoint coordinates, the presence of the person on the current frame, and the refined region of interest for the current frame. When the tracker indicates that there is no human present, the detector network is run on the next frame
+During inference, a detector-tracker setup is employed (see Figure 1), which has good real-time performance on a variety of tasks such as hand landmark prediction[3] and dense face landmark prediction[6]. Our pipeline consists of a lightweight body pose detector followed by a pose tracker network. The tracker predicts keypoint coordinates, the presence of the person on the current frame, and the refined region of interest for the current frame. When the tracker indicates that there is no human present, the detector network is run on the next frame
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/InferencePipeline.png" alt="system drawing" height="300" width="400" /></p>
 <p align="center"> Figure 3: Inference Pipeline </p>
