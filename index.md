@@ -41,14 +41,15 @@ We then have 3-d coordinate data for each skeletal component and 3-d coordinate 
 The primary challenge in this architecture is implementing the target detection and human skeletal pose estimation of the target.  The human pose estimate must be accurate for precise aiming of the device that fires the rubber bullets.  It must all be fast for instant targeting and tracking of the target's motion.
 
 ## Methods
-Much of the research work done todate has for human body pose implements the COCO topology, which consists of 17 landmarks across the torso, arms, legs, and face. However, the COCO keypoints only localize to the ankle and wrist points, lacking scale and orientation information for hands and feet, which is vital for practical applications like fitness and dance. The inclusion of more keypoints is crucial for the subsequent application of domain-specific pose estimation models, like those for hands, face, or feet.
 
-For this project, BlazePose[4], a convolutional neural network developed by Google and architected for human pose estimation  was selected to provide the pose estimations for each of the stereo camera pairs.  This solution is tailored for real-time inference and requires minimal computational resources.  During inference, the algorithm produces 33 body keypoints for a single person.  For this project 2 instances of the algorithm generate over 30 frames per second in real-time.
+For this project, BlazePose[4], a convolutional neural network developed by Google and architected for human pose estimation  was selected to provide the pose estimations for each of the stereo camera pairs.  This solution is tailored for real-time inference and requires minimal computational resources. 
+
+Much of the research work done to date for human body pose estimation implements the COCO topology, which consists of 17 landmarks across the torso, arms, legs, and face. The Google implementation expands this number to 33 body keypoints.  For this project 2 instances of the algorithm generate over 30 frames per second in real-time.
 
 During inference, a detector-tracker setup is employed (see Figure 1), which has good real-time performance on a variety of tasks such as hand landmark prediction[3] and dense face landmark prediction[6]. Our pipeline consists of a lightweight body pose detector followed by a pose tracker network. The tracker predicts keypoint coordinates, the presence of the person on the current frame, and the refined region of interest for the current frame. When the tracker indicates that there is no human present, the detector network is run on the next frame
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/InferencePipeline.png" alt="system drawing" height="300" width="400" /></p>
-<p align="center"> Figure 3: Inference Pipeline </p>
+<p align="center"> Figure 3: Inference Pipeline [4]</p>
 
 The pose estimation component of the google system predicts the location of the 33 person keypoints, and uses the person alignment proposal provided by the first stage of the pipeline.
 
