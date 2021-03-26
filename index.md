@@ -75,7 +75,7 @@ The Google implementation actively utilize skip-connections between all the stag
 
 ## Results
 
-In real time the detected human pose skeletons in the camera view will be shown as an overlay to the subjects.  The subject's targeted skeletal region will be identified in the image and the distance to the subject displayed.  
+As shown in Figure 7, in real time the detected human pose skeletons in the camera's view are overlayed on the subject with the 33 Key Points labeled. When the laser targets the area near the yellow dot in the image, the dot turns red and a red circle is displayed around the dot.  
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="Targeting" height="800" width="800" /></p>
 <p align="center"> Figure 7: Example of Targeting </p> 
