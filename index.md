@@ -44,9 +44,9 @@ The primary challenge in this architecture is implementing the target detection 
 
 For this project, BlazePose[4], a convolutional neural network developed by Google and architected for human pose estimation  was selected to provide the pose estimations for each of the stereo camera pairs.  This solution is tailored for real-time inference and requires minimal computational resources. 
 
-Much of the research work done to date for human body pose estimation implements the COCO topology, which consists of 17 landmarks across the torso, arms, legs, and face. The Google implementation expands this number to 33 body keypoints.  For this project 2 instances of the algorithm generate over 30 frames per second in real-time.
+Much of the research work done to date for human body pose estimation implements the COCO topology[5], which consists of 17 landmarks across the torso, arms, legs, and face. The Google implementation expands this number to 33 body keypoints.  For this project 2 instances of the algorithm generate over 30 frames per second in real-time.
 
-During inference, a detector-tracker setup is employed (see Figure 1), which has good real-time performance on a variety of tasks such as hand landmark prediction[3] and dense face landmark prediction[6]. Our pipeline consists of a lightweight body pose detector followed by a pose tracker network. The tracker predicts keypoint coordinates, the presence of the person on the current frame, and the refined region of interest for the current frame. When the tracker indicates that there is no human present, the detector network is run on the next frame
+During inference, a detector-tracker setup is employed (see Figure 1), which has good real-time performance on a variety of landmark prediction tasks. The Google pipeline consists of a lightweight body pose detector followed by a pose tracker network. The tracker predicts keypoint coordinates, the presence of the person on the current frame, and the refined region of interest for the current frame. When the tracker indicates that there is no human present, the detector network is run on the next frame. [4]
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/InferencePipeline.png" alt="system drawing" height="300" width="400" /></p>
 <p align="center"> Figure 3: Inference Pipeline [4]</p>
@@ -54,19 +54,18 @@ During inference, a detector-tracker setup is employed (see Figure 1), which has
 The pose estimation component of the google system predicts the location of the 33 person keypoints, and uses the person alignment proposal provided by the first stage of the pipeline.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/PosePoints.png" alt="system drawing" height="400" width="400" /></p>
-<p align="center"> Figure 4: Keypoint topology </p>
+<p align="center"> Figure 4: Keypoint topology[5] </p>
 
 The network consists a a combined heatmap, offset, and regression approach, as shown in Figure 4.  The heatmap and offset loss is used only in the training stage and removes the corresponding output layers from the model before running the inference.  The heatmap supervises the lightweight embedding, which is then utilized by the regression encoder network. Similar to the Stacked Hourglass approach of Newell et al. [9], but in this implementation google stacks an implementation small encoder-decoder heatmap-based network and a subsequent regression encoder network.
 
-We actively utilize skip-connections between all the stages of the network to achieve a balance between high- and low-level features. However, the gradients from the regression encoder are not propagated back to the heatmap- trained features (note the gradient-stopping connections in Figure 4). We have found this to not only improve the heatmap predictions, but also substantially increase the co- ordinate regression accuracy. 
+The Google implementation actively utilize skip-connections between all the stages of the network to achieve a balance between high-level and low-level features. However, the gradients from the regression encoder are not propagated back to the heatmap-trained features (note the gradient-stopping connections in Figure 4). We have found this to not only improve the heatmap predictions, but also substantially increase the coordinate regression accuracy. 
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/SystemArchitecture.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 5: Network Architecture </p> 
 
 ## Data Collection and Neural Network Training
 
-To evaluate our model’s quality, we chose OpenPose [4] as a baseline. To that end, we manually annotated two in- house datasets of 1000 images, each with 1–2 people in the scene. The first dataset, referred to as AR dataset, consist of a wide variety of human poses in the wild, while the sec- ond is comprised of yoga/fitness poses only
-This dataset provides stereo image pairs in a wide range of variations in appearance, clothing, human pose, illumination, image quality, baseline separation of the cameras, and background. 
+The origninal algorithm was trained on two manually annotated datasets of 1000 images, each with each of the images had 1–2 people in the scene.  The first dataset consisted of a wide variety of human poses with a wide range of variations in appearance, clothing, human pose, illumination, image quality, and background while the second was comprised of yoga/fitness poses only.  For this project, the network training was achieved through tranfer learning where the base network was the Google trained network, and we repurposed the learned features, or transfered them, to a our network for the target dataset.
 
 The test setup consisted of the 4 cameras mounted as shown in Figure 6.  A mannequin was used for calibration and test of the system.
 
