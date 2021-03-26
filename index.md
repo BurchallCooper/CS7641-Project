@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Advances in deep learning allow for accurate real-time pose estimation[1][2][3] which can be applied to security applications for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This project will describe the full system implementation focusing primarily on the targeting design of the system using deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  
+Advances in deep learning allow for accurate real-time pose estimation[1][2][3] which can be applied to security applications for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This project describes the full system implementation focusing primarily on the targeting design of the system using deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  
 
 The architecture of the security system described in this paper has 3 distinct functions: Threat Detection, Targeting, and Threat Neutralization.
 
@@ -75,7 +75,7 @@ The Google implementation actively utilize skip-connections between all the stag
 
 ## Results
 
-The baseline for the project will be to implement non-real-time ranging with the Stereo Human Pose Estimation Dataset, SHPED. The stretch goal will add targeting to the system.   In real time the detected human pose skeletons in the camera view will be shown as an overlay to the subjects.  The subject's targeted skeletal region will be identified in the image and the distance to the subject displayed.  
+In real time the detected human pose skeletons in the camera view will be shown as an overlay to the subjects.  The subject's targeted skeletal region will be identified in the image and the distance to the subject displayed.  
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="Targeting" height="800" width="800" /></p>
 <p align="center"> Figure 7: Example of Targeting </p> 
