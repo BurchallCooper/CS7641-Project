@@ -19,7 +19,7 @@ The architecture of the security system described in this paper has 3 distinct f
 
 Figure 1 illustrates the system architecture.  Two sets of cameras are used.  One set is for stereo pose estimation to provide ranging for the vision system, and the second set is outfitted with optical bandpass filters centered at the laser frequency to filter out ambient light.  The second set also provides ranging data and control of the weapon’s gimble.  The 532 nm targeting laser is mounted to the barrel of the weapon. 
 
-This approach allows for the cameras to be mounted on a stationary platform and only the targeting laser and weapon to move for targeting.  The advantage is the sensitive camera equipment is protected, but at the expense of making the system more complicated.  
+This approach allows for the cameras to be mounted on a stationary platform and only the targeting laser and weapon move for targeting.  The advantage is the sensitive camera equipment is protected, but at the expense of making the system more complicated.  
 
 ## Problem definition
 The operation of the system is as follows:
@@ -38,7 +38,7 @@ We then have 3-d coordinate data for each skeletal component and 3-d coordinate 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/StereoEquation.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 2: Stereo Equation Derivation </p>
  
-The primary challenge in this architecture is implementing the target detection and human skeletal pose estimation of the target.  The human pose estimate must be accurate for precise aiming of the device that fires the rubber bullets.  It must all be fast for instant targeting and tracking of the target's motion.
+The primary challenge in this architecture is implementing the target detection and human skeletal pose estimation of the target.  The human pose estimate must be accurate for precise aiming of the device that fires the rubber bullets.  It must also be fast for instant targeting and tracking of the target's motion.
 
 ## Data Collection and Neural Network Training
 
@@ -52,11 +52,11 @@ and in practice would limit the performance of the system. As shown in the figur
 
 ## Methods
 
-For this project, BlazePose[4], a convolutional neural network developed by Google and architected for human pose estimation  was selected to provide the pose estimations for each of the stereo camera pairs.  This solution is tailored for real-time inference and requires minimal computational resources. 
+For this project, BlazePose[4], a convolutional neural network developed by Google and architected for human pose estimation was selected to provide the pose estimations for each of the stereo camera pairs.  This solution was developed for real-time inference and requires minimal computational resources. 
 
 Much of the research work done to date for human body pose estimation implements the COCO topology[5], which consists of 17 landmarks across the torso, arms, legs, and face. The Google implementation expands this number to 33 body keypoints.  For this project 2 instances of the algorithm generate over 30 frames per second in real-time.
 
-During inference, a detector-tracker setup is employed (see Figure 1), which has good real-time performance on a variety of landmark prediction tasks. The Google pipeline consists of a lightweight body pose detector followed by a pose tracker network. The tracker predicts keypoint coordinates, the presence of the person on the current frame, and the refined region of interest for the current frame. When the tracker indicates that there is no human present, the detector network is run on the next frame. [4]
+During inference, a detector-tracker setup is employed (see Figure 3), which has good real-time performance on a variety of landmark prediction tasks. The Google pipeline consists of a lightweight body pose detector followed by a pose tracker network. The tracker predicts keypoint coordinates, the presence of the person on the current frame, and the refined region of interest for the current frame. When the tracker indicates that there is no human present, the detector network is run on the next frame. [4]
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/InferencePipeline.png" alt="system drawing" height="300" width="400" /></p>
 <p align="center"> Figure 3: Inference Pipeline [4]</p>
