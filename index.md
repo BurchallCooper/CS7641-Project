@@ -75,7 +75,7 @@ The Google implementation actively utilize skip-connections between all the stag
 
 ## Results
 
-As shown in Figure 7, in real time the detected human pose skeletons in the camera's view are overlayed on the subject with the 33 Key Points labeled. When the laser targets the area near the yellow dot in the image, the dot turns red and a red circle is displayed around the dot.  
+As shown in Figure 7, in real time the detected human pose skeletons in the camera's view are overlayed on the subject with the 33 Key Points labeled. When the laser targets the area near the yellow dot in the image, the dot turns red and a red circle is displayed around the dot. The experimental setup is only intended to test the operation of the neural network and the targeting of a particular human pose landmark.  Ultimately, the objective is to mount the laser on a gimble and have a control system adjust the aiming of the laser to continuosly track the targeted pose landmark.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="Targeting" height="800" width="800" /></p>
 <p align="center"> Figure 7: Example of Targeting </p> 
