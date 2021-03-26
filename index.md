@@ -56,19 +56,19 @@ For this project, BlazePose[4], a convolutional neural network developed by Goog
 
 Much of the research work done to date for human body pose estimation implements the COCO topology[5], which consists of 17 landmarks across the torso, arms, legs, and face. The Google implementation expands this number to 33 body keypoints.  For this project 2 instances of the algorithm generate over 30 frames per second in real-time.
 
-During inference, a detector-tracker setup is employed (see Figure 3), which has good real-time performance on a variety of landmark prediction tasks. The Google pipeline consists of a lightweight body pose detector followed by a pose tracker network. The tracker predicts keypoint coordinates, the presence of the person on the current frame, and the refined region of interest for the current frame. When the tracker indicates that there is no human present, the detector network is run on the next frame. [4]
+During inference, a detector-tracker setup is employed (see Figure 4), which has good real-time performance on a variety of landmark prediction tasks. The Google pipeline consists of a lightweight body pose detector followed by a pose tracker network. The tracker predicts keypoint coordinates, the presence of the person on the current frame, and the refined region of interest for the current frame. When the tracker indicates that there is no human present, the detector network is run on the next frame. [4]
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/InferencePipeline.png" alt="system drawing" height="300" width="400" /></p>
-<p align="center"> Figure 3: Inference Pipeline [4]</p>
+<p align="center"> Figure 4: Inference Pipeline [4]</p>
 
 The pose estimation component of the google system predicts the location of the 33 person keypoints, and uses the person alignment proposal provided by the first stage of the pipeline.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/PosePoints.png" alt="system drawing" height="400" width="400" /></p>
-<p align="center"> Figure 4: Keypoint topology[5] </p>
+<p align="center"> Figure 5: Keypoint topology[5] </p>
 
-The network consists a a combined heatmap, offset, and regression approach, as shown in Figure 4.  The heatmap and offset loss is used only in the training stage and removes the corresponding output layers from the model before running the inference.  The heatmap supervises the lightweight embedding, which is then utilized by the regression encoder network. Similar to the Stacked Hourglass approach of Newell et al. [9], but in this implementation google stacks an implementation small encoder-decoder heatmap-based network and a subsequent regression encoder network.
+The network consists a a combined heatmap, offset, and regression approach, as shown in Figure 5.  The heatmap and offset loss is used only in the training stage and removes the corresponding output layers from the model before running the inference.  The heatmap supervises the lightweight embedding, which is then utilized by the regression encoder network. Similar to the Stacked Hourglass approach of Newell et al. [9], but in this implementation google stacks an implementation small encoder-decoder heatmap-based network and a subsequent regression encoder network.
 
-The Google implementation actively utilize skip-connections between all the stages of the network to achieve a balance between high-level and low-level features. However, the gradients from the regression encoder are not propagated back to the heatmap-trained features (note the gradient-stopping connections in Figure 4). We have found this to not only improve the heatmap predictions, but also substantially increase the coordinate regression accuracy. 
+The Google implementation actively utilize skip-connections between all the stages of the network to achieve a balance between high-level and low-level features. However, the gradients from the regression encoder are not propagated back to the heatmap-trained features (note the gradient-stopping connections in Figure 5). We have found this to not only improve the heatmap predictions, but also substantially increase the coordinate regression accuracy. 
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/SystemArchitecture.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 5: Network Architecture </p> 
