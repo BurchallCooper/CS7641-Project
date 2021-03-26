@@ -36,7 +36,7 @@ Similarly, for the laser cameras:
 We then have 3-d coordinate data for each skeletal component and 3-d coordinate data for the laser target.  The control system minimizes the error between vision and laser coordinates by controlling the gimbal and the target is thus acquired.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/StereoEquation.png" alt="system drawing" height="400" width="400" /></p>
-<p align="center"> Figure 2: Stereo Equation Derivation </p>
+<p align="center"> Figure 2: Stereo Equation Derivation[6] </p>
  
 The primary challenge in this architecture is implementing the target detection and human skeletal pose estimation of the target.  The human pose estimate must be accurate for precise aiming of the device that fires the rubber bullets.  It must also be fast for instant targeting and tracking of the target's motion.
 
@@ -93,5 +93,6 @@ This project incorporates both recent advances in deep learning applied to real-
 3.    Z. Cao, T. Simon, S.-E. Wei, Y. Sheikh, “Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields”, CVPR 2017
 4.    V. Bazarevsky, I. Grishchenko, https://ai.googleblog.com/2020/08/on-device-real-time-body-pose-tracking.html
 5.    Lin TY. et al. (2014) Microsoft COCO: Common Objects in Context. In: Fleet D., Pajdla T., Schiele B., Tuytelaars T. (eds) Computer Vision – ECCV 2014. ECCV 2014. Lecture Notes in Computer Science, vol 8693. Springer, Cham. https://doi.org/10.1007/978-3-319-10602-1_48
+6.    F. Dellaert, "Introduction to Computer Vision", Georgia Tech CS 6476 Fall 2020 edition 
 
 [edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md)    
