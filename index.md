@@ -38,9 +38,12 @@ We then have 3-d coordinate data for each skeletal component and 3-d coordinate 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/StereoEquation.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 2: Stereo Equation Derivation </p>
  
-The primary challenge in this architecture is implementing the target detection and human skeletal pose estimation.  For this project, BlazePose[4], a convolutional neural network developed by Google and architected for human pose estimation  was selected to provide the pose estimations for each of the stereo camera pairs.  This solution is tailored for real-time inference and requires minimal computational resources.  During inference, the algorithm produces 33 body keypoints for a single person.  For this project 2 instances of the algorithm generate over 30 frames per second in real-time.
+The primary challenge in this architecture is implementing the target detection and human skeletal pose estimation of the target.  The human pose estimate must be accurate for precise aiming of the device that fires the rubber bullets.  It must all be fast for instant targeting and tracking of the target's motion.
 
 ## Methods
+Much of the research work done todate has for human body pose implements the COCO topology, which consists of 17 landmarks across the torso, arms, legs, and face. However, the COCO keypoints only localize to the ankle and wrist points, lacking scale and orientation information for hands and feet, which is vital for practical applications like fitness and dance. The inclusion of more keypoints is crucial for the subsequent application of domain-specific pose estimation models, like those for hands, face, or feet.
+
+For this project, BlazePose[4], a convolutional neural network developed by Google and architected for human pose estimation  was selected to provide the pose estimations for each of the stereo camera pairs.  This solution is tailored for real-time inference and requires minimal computational resources.  During inference, the algorithm produces 33 body keypoints for a single person.  For this project 2 instances of the algorithm generate over 30 frames per second in real-time.
 
 During inference, a detector-tracker setup is employed (see Figure 1), which has good real-time performance on a variety of tasks such as hand landmark prediction[3] and dense face landmark prediction[6]. Our pipeline consists of a lightweight body pose detector followed by a pose tracker network. The tracker predicts keypoint coordinates, the presence of the person on the current frame, and the refined region of interest for the current frame. When the tracker indicates that there is no human present, the detector network is run on the next frame
 
@@ -82,9 +85,10 @@ This project incorporates both recent advances in deep learning applied to real-
 
 ## References
 
-1.    G. Papandreou, T. Zhu, N. Kanazawa, A. Toshev, J. Tompson, C. Bregler, K. Murphy, Towards Accurate Multi-Person Pose Estimation in the Wild, Proceedings of the IEEE      Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 4903-4911
+1.    G. Papandreou, T. Zhu, N. Kanazawa, A. Toshev, J. Tompson, C. Bregler, K. Murphy, "Towards Accurate Multi-Person Pose Estimation in the Wild", Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 4903-4911
 2.    J. Huang et al., “Speed/accuracy trade-offs for modern convolutional object detectors”, CVPR 2017  
 3.    Z. Cao, T. Simon, S.-E. Wei, Y. Sheikh, “Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields”, CVPR 2017
 4.    V. Bazarevsky, I. Grishchenko, https://ai.googleblog.com/2020/08/on-device-real-time-body-pose-tracking.html
+5.    Lin TY. et al. (2014) Microsoft COCO: Common Objects in Context. In: Fleet D., Pajdla T., Schiele B., Tuytelaars T. (eds) Computer Vision – ECCV 2014. ECCV 2014. Lecture Notes in Computer Science, vol 8693. Springer, Cham. https://doi.org/10.1007/978-3-319-10602-1_48
 
 [edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md)    
