@@ -4,7 +4,7 @@
 
 Advances in deep learning allow for accurate real-time pose estimation[1][2][3] which can be applied to security applications for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This project will describe the full system implementation focusing primarily on the targeting design of the system using deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  
 
-The architecture of the security system described in this paper has 3 distinct functions: (1) Threat Detection, (2) Targeting, and (3) Threat Neutralization.
+The architecture of the security system described in this paper has 3 distinct functions: Threat Detection, Targeting, and Threat Neutralization.
 
 - Threat Detection. Threat detection may be as simple as a perimeter violation where some unidentified individual crosses a predefined boundary into a controlled area.   However, it may be much more sophisticated where a weapon is detected in the hand of an individual by the threat detection module.  Ideally, this module would be sufficiently intelligent to differentiate between friendlies and hostiles carrying weapons.  
 
