@@ -70,7 +70,7 @@ The network consists a a combined heatmap, offset, and regression approach, as s
 
 The Google implementation actively utilize skip-connections between all the stages of the network to achieve a balance between high-level and low-level features. However, the gradients from the regression encoder are not propagated back to the heatmap-trained features (note the gradient-stopping connections in Figure 6). We have found this to not only improve the heatmap predictions, but also substantially increase the coordinate regression accuracy. 
 
-<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/SystemArchitecture.png" alt="system drawing" height="400" width="600" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/SystemArchitecture.png" alt="system drawing" height="400" width="800" /></p>
 <p align="center"> Figure 6: Network Architecture </p> 
 
 ## Results
