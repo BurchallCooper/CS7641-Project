@@ -44,7 +44,7 @@ The primary challenge in this architecture is implementing the target detection 
 
 The origninal algorithm was trained on two manually annotated datasets of 1000 images developed by Google[4], with each of the images having 1–2 people in the scene.  The first dataset consisted of a wide variety of human poses with a wide range of variations in appearance, clothing, human pose, illumination, image quality, and background while the second was comprised of yoga/fitness poses only.  For this project, the network training was achieved through tranfer learning where the base network was the Google trained network, and we repurposed the learned features, or transfered them, to a our network for the target dataset.
 
-The test setup consisted of the 4 cameras mounted as shown in Figure 3 where the left and right cameras are mounted such that the world coordinates of the cameras have the same x-cooridinates and slighly offset y-cooridnates.  Achieving good alignment of the cameras was a significant challenge 
+The test setup consisted of the 4 cameras mounted as shown in Figure 3 where the left and right cameras are mounted such that the world coordinates of the cameras have the same x-cooridinates and slightly offset y-cooridnates.  Achieving good alignment of the cameras was a significant challenge 
 and in practice would limit the performance of the system. As shown in the figure, a mannequin was used for calibration and test of the system.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/TestSetup.jpg" alt="system drawing" height="400" width="400" /></p>
