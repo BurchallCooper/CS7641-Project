@@ -33,7 +33,7 @@ Similarly, for the laser cameras:
 2.	The laser target is detected in the image.  In this case the range is to the detected laser point in the image which is unambiguous as the detectpr only returns one point for each image.
 3.	The disparity between the laser target in each image allows the distance to the target to be calculated.  This is identical to the vision case.
 
-We then have 3-d coordinate data for each skeletal component and 3-d coordinate data for the laser target.  The control system minimizes the error between vision and laser coordinates by controlling the gimbal and the target is thus acquired.
+Now that we have the ouptuts from the vision and the laser system, we have 3-d coordinate data for each skeletal component and 3-d coordinate data for the laser target.  In a full system implementation, a control system would minimize the error between vision and laser coordinates by controlling the gimbal and the target would be acquired.  In this proof of concept we are simply detecting that the laser and selected vision component are aligned.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/StereoEquation.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 2: Stereo Equation Derivation[6] </p>
