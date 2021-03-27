@@ -25,7 +25,7 @@ This approach allows for the cameras to be mounted on a stationary platform and 
 The operation of the system is as follows:
 1.	Each vision camera simultaneously captures the image of the target. Two images are required to use stereo techniques to calculate the range to the target.
 2.	Human skeletal poses are extracted from the stereo images.  The idea is to be able to accurately target any portion of the human body.
-3.	The images are grouped in pairs using non-supervised learning. An image may have a large number of potential targets and the stereo calculation requires accurate pairing of the targets for ranging.
+3.	The images are grouped in pairs using non-supervised learning. An image may have a large number of potential targets and the stereo calculation requires accurate pairing of the targets for ranging.  fThe nearest neighbor of the vector created by the pose estimates pairs the data between images.
 4.	The disparity between each skeletal component in the image pairs allows the distance to that skeletal component to be calculated. (See Figure 2 below for stereo depth calculation)
 
 Similarly, for the laser cameras:
