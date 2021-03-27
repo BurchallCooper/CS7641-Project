@@ -25,13 +25,13 @@ This approach allows for the cameras to be mounted on a stationary platform and 
 The operation of the system is as follows:
 1.	Each vision camera simultaneously captures the image of the target. Two images are required to use stereo techniques to calculate the range to the target.
 2.	Human skeletal poses are extracted from the stereo images.  The idea is to be able to accurately target any portion of the human body.
-3.	The images are grouped in pairs using non-supervised learning. An image may have a large number of potential targets and the stereo calculation requires accurate pairing of the targets for ranging.  fThe nearest neighbor of the vector created by the pose estimates pairs the data between images.
+3.	The images are grouped in pairs using non-supervised learning. An image may have a large number of potential targets and the stereo calculation requires accurate pairing of the targets for ranging.  The nearest neighbor of the vector created by the pose estimates pairs the data between images.
 4.	The disparity between each skeletal component in the image pairs allows the distance to that skeletal component to be calculated. (See Figure 2 below for stereo depth calculation)
 
 Similarly, for the laser cameras:
-1.	Each laser camera simultaneously captures the image of the target
-2.	The laser target is detected in the image
-3.	The disparity between the laser target in each image allows the distance to the target to be calculated
+1.	Each laser camera simultaneously captures the image of the target. Similar to the vision cameras, two images are required to use stereo techniques to calculate the range.  
+2.	The laser target is detected in the image.  In this case the range is to the detected laser point in the image which is unambiguous as the detectpr only returns one point for each image.
+3.	The disparity between the laser target in each image allows the distance to the target to be calculated.  This is identical to the vision case.
 
 We then have 3-d coordinate data for each skeletal component and 3-d coordinate data for the laser target.  The control system minimizes the error between vision and laser coordinates by controlling the gimbal and the target is thus acquired.
 
