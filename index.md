@@ -22,7 +22,7 @@ Figure 1 illustrates the system architecture.  Two sets of cameras are used.  On
 This approach allows for the cameras to be mounted on a stationary platform and only the targeting laser and weapon move for targeting.  The advantage is the sensitive camera equipment is protected, but at the expense of making the system more complicated.  
 
 ## Problem definition
-The operation of the system is as follows:
+The operation of the vision system and laser system are independent and the output results are combined for targeting. The sequence of events for the vison system is as follows:
 1.	Each vision camera simultaneously captures the image of the target. Two images are required to use stereo techniques to calculate the range to the target.
 2.	Human skeletal poses are extracted from the stereo images.  The idea is to be able to accurately target any portion of the human body.
 3.	The images are grouped in pairs using non-supervised learning. An image may have a large number of potential targets and the stereo calculation requires accurate pairing of the targets for ranging.  The nearest neighbor of the vector created by the pose estimates pairs the data between images.
