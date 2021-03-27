@@ -81,7 +81,7 @@ The experimental setup is only intended to test the operation of the neural netw
 
 The laser detection worked well indoors with varied lighting conditions.  Some testing was done with outdoor lighting conditions.  It was noted that with outdoor bright sunlight that has significant green spectral content this approach does not work well.  However, green lasers were all that were readily available, and worked well for this proof of concept. 
 
-It was discovered that pose detection required the human target to occupy approximately 50% of the frame in either the x or y dimension.  The architecture of the targeting system will need to be modified to incorporate a preprossing stage to solve this problem.  This preprocessor would need to detect the target and zoom the image for the pose detector to work optimally.
+It was discovered that pose detection required the human target to occupy approximately 50% of the frame in either the x or y dimension.  The range of the current system is limited to under 4 meters.  The architecture of the targeting system will need to be modified to incorporate a preprossing stage to solve this problem.  This preprocessor would need to detect the target and zoom the image for the pose detector to work optimally.  With only electronic zoom the distance could be increased to 20 meters with the existing cameras.  Optical zoom would be needed for long distances.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="Targeting" height="800" width="800" /></p>
 <p align="center"> Figure 7: Example of Targeting </p> 
