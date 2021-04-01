@@ -93,7 +93,10 @@ Testing against the FPDS[7] dataset  resulted in one shot detection in 57% of th
 
 Testing against COCO[5] was more problematic.  If there was a person present in the image, the pose estimator worked well in providing the pose estimate.  But often in scenes with no humans present and animals were present, the neural network would misclassify the animal as human and provide an estimated pose as shown in figure 9. In this case  a rooster was identified as the hostile actor.  However, it is a good pose estimate for a rooster. Also, the network would occasionally misclassify an inanimate object in an outdoor scene as human and provide a pose estimate.
 
-<p align="center"><img src="https://github.com/BurchallCooper/CS7641-Project/blob/gh-pages/annotated_image490.png?raw=true" alt="Targeting" height="300" width="300" /></p>
+<p align="center">
+ <img src="https://github.com/BurchallCooper/CS7641-Project/blob/gh-pages/annotated_image490.png?raw=true" alt="Targeting" height="300" width="300" />
+ <img src="https://github.com/BurchallCooper/CS7641-Project/blob/gh-pages/annotated_image490.png?raw=true" alt="Targeting" height="300" width="300" />
+</p>
 <p align="center"> Figure 8: Failure of Neural Network </p> 
 
 
