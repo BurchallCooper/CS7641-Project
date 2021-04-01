@@ -101,7 +101,7 @@ Testing against COCO[5] was more problematic.  If there is a person present in t
  <img src="https://github.com/BurchallCooper/CS7641-Project/blob/gh-pages/annotated_image490.png?raw=true" alt="Targeting" height="300" width="300" />
  <img src="https://github.com/BurchallCooper/CS7641-Project/blob/gh-pages/annotated_image872.png?raw=true" alt="Targeting" height="300" width="300" />
 </p>
-<p align="center"> Figure 8: Failures of the Neural Network </p> 
+<p align="center"> Figure 8: Failures of the Neural Network </p>  
 
 
 ## Discussion
