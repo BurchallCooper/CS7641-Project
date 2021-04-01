@@ -91,6 +91,8 @@ It was discovered that pose detection required the human target to occupy approx
 
 Testing against the FPDS[7] dataset  resulted in one shot detection in 57% of the images.  On the surface this would appear to be a low number, but these were very difficult to detect occluded poses.  Additionally, this was one shot and the application would be running at 30 frames per second making the likelihood of detection much more likely for a target that is in motion.  With the confidence level set to 0.5, the neural network worked very well in correctly finding the pose. For 1708 images where a person was detected, there was only 1 failure where the pose was incorrectly formed.
 
+Testing against COCO[9] was more problematic.  If there was a person present in the image, the pose estimator worked well in providing the pose estimate.  But often in scenes with no humans present and animals were present, the neural network would misclassify the animal as human and provide an estimated pose as shown in figure 9. In this case  a rooster was identified as the hostile actor.  However, it is a good pose estimate for a rooster. Also, the network would occasionally misclassify an inanimate object in an outdoor scene as human and provide a pose estimate.
+
 <p align="center"><img src="https://github.com/BurchallCooper/CS7641-Project/blob/gh-pages/annotated_image490.png?raw=true" alt="Targeting" height="300" width="300" /></p>
 <p align="center"> Figure 8: Example of Failure of Neural Network </p> 
 
