@@ -44,6 +44,8 @@ The primary challenge in this architecture is implementing the target detection 
 
 The origninal algorithm was trained on two manually annotated datasets of 1000 images developed by Google[4], with each of the images having 1–2 people in the scene.  The first dataset consisted of a wide variety of human poses with a wide range of variations in appearance, clothing, human pose, illumination, image quality, and background while the second was comprised of yoga/fitness poses only.  For this project, the network training was achieved through tranfer learning where the base network was the Google trained network, and we repurposed the learned features, or transfered them, to a our network for the target dataset.
 
+For testing the Fallen People Data Set (FPDS)[7], which consists of 6982 images, with a total of 5023 falls and 2275 non falls corresponding to people in conventional situations (standing up, sitting, lying on the sofa or bed, walking, etc).  Most all the images were captured in indoor environments
+
 The test setup consisted of the 4 cameras mounted as shown in Figure 3 where the left and right cameras are mounted such that the world coordinates of the cameras have the same x-cooridinates and slightly offset y-cooridnates.  Achieving good alignment of the cameras was a significant challenge 
 and in practice would limit the performance of the system. As shown in the figure, a mannequin was used for calibration and test of the system.
 
@@ -102,5 +104,6 @@ This project incorporates both recent advances in deep learning applied to real-
 4.    V. Bazarevsky, I. Grishchenko, https://ai.googleblog.com/2020/08/on-device-real-time-body-pose-tracking.html
 5.    Lin TY. et al. (2014) Microsoft COCO: Common Objects in Context. In: Fleet D., Pajdla T., Schiele B., Tuytelaars T. (eds) Computer Vision – ECCV 2014. ECCV 2014. Lecture Notes in Computer Science, vol 8693. Springer, Cham. https://doi.org/10.1007/978-3-319-10602-1_48
 6.    F. Dellaert, "Introduction to Computer Vision", Georgia Tech CS 6476 Fall 2020 edition 
+7.    M. Antonello,  C. Antonello, M. Marco, P. Marco, M. Emanuele, "Fast and Robust detection of fallen people from a mobile robot", Intelligent Robots and Systems (IROS), 2017 IEEE/RSJ International Conference, http://agamenon.tsc.uah.es/Investigacion/gram/papers/fall_detection/
 
 [edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md)    
