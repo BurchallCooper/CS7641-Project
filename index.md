@@ -86,7 +86,11 @@ The laser detection worked well indoors with varied lighting conditions.  Some t
 It was discovered that pose detection required the human target to occupy approximately 25% of the frame in either the x or y dimension.  The range of the current system is limited to under 4 meters.  The architecture of the targeting system will need to be modified to incorporate a preprossing stage to solve this problem.  This preprocessor would need to detect the target and zoom the image for the pose detector to work optimally.  With only electronic zoom the distance could be increased to 20 meters with the existing cameras.  Optical zoom would be needed for long distances.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="Targeting" height="800" width="800" /></p>
-<p align="center"> Figure 7: Example of Targeting </p> 
+<p align="center"> Figure 7: First example of targeting </p>
+
+<p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/ayden.gif" alt="Targeting" height="800" width="800" /></p>
+<p align="center"> Figure 8: Second example of targeting </p> 
+
 
 
 Testing against the FPDS[7] dataset  resulted in one shot detection in 57% of the images.  On the surface this would appear to be a low number, but these were very difficult to detect occluded poses.  Additionally, this was one shot and the application would be running at 30 frames per second making the likelihood of detection much more likely for a target that is in motion.  With the confidence level set to 0.5, the neural network worked very well in correctly finding the pose. For 1708 images where a person was detected, there was only 1 failure where the pose was incorrectly formed.
