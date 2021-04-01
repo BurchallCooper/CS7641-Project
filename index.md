@@ -83,7 +83,7 @@ The experimental setup is only intended to test the operation of the neural netw
 
 The laser detection worked well indoors with varied lighting conditions.  Some testing was done with outdoor lighting conditions.  It was noted that with outdoor bright sunlight that has significant green spectral content this approach does not work well.  However, green lasers were all that were readily available, and worked well for this proof of concept. 
 
-It was discovered that pose detection required the human target to occupy approximately 50% of the frame in either the x or y dimension.  The range of the current system is limited to under 4 meters.  The architecture of the targeting system will need to be modified to incorporate a preprossing stage to solve this problem.  This preprocessor would need to detect the target and zoom the image for the pose detector to work optimally.  With only electronic zoom the distance could be increased to 20 meters with the existing cameras.  Optical zoom would be needed for long distances.
+It was discovered that pose detection required the human target to occupy approximately 25% of the frame in either the x or y dimension.  The range of the current system is limited to under 4 meters.  The architecture of the targeting system will need to be modified to incorporate a preprossing stage to solve this problem.  This preprocessor would need to detect the target and zoom the image for the pose detector to work optimally.  With only electronic zoom the distance could be increased to 20 meters with the existing cameras.  Optical zoom would be needed for long distances.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="Targeting" height="800" width="800" /></p>
 <p align="center"> Figure 7: Example of Targeting </p> 
@@ -91,7 +91,10 @@ It was discovered that pose detection required the human target to occupy approx
 
 Testing against the FPDS[7] dataset  resulted in one shot detection in 57% of the images.  On the surface this would appear to be a low number, but these were very difficult to detect occluded poses.  Additionally, this was one shot and the application would be running at 30 frames per second making the likelihood of detection much more likely for a target that is in motion.  With the confidence level set to 0.5, the neural network worked very well in correctly finding the pose. For 1708 images where a person was detected, there was only 1 failure where the pose was incorrectly formed.
 
-Testing against COCO[5] was more problematic.  If there was a person present in the image, the pose estimator worked well in providing the pose estimate.  But often in scenes with no humans present and animals were present, the neural network would misclassify the animal as human and provide an estimated pose as shown in figure 9. In this case  a rooster was identified as the hostile actor.  However, it is a good pose estimate for a rooster. Also, the network would occasionally misclassify an inanimate object in an outdoor scene as human and provide a pose estimate.
+Testing against COCO[5] was more problematic.  If there is a person present in the image, the pose detectpr works well in providing the pose estimate.  But, in scenes with no humans present, as illustrated in figure 9, the neural network will occasionally misclassify an inanimate object as human and provide a pose estimate.  In images with an animal present and no human the network may provide a human pose estimate for the animal.  The pose estimate for the rooster, also in figure 9, illustrates this problem.  
+
+and an animal is present, the neural network will misclassify the animal as human and provide an estimated pose as shown in figure 9. 
+In this case  a rooster was identified as the hostile actor.  However, it is a good pose estimate for a rooster. Also, the network would occasionally misclassify an inanimate object in an outdoor scene as human and provide a pose estimate.
 
 <p align="center">
  <img src="https://github.com/BurchallCooper/CS7641-Project/blob/gh-pages/annotated_image490.png?raw=true" alt="Targeting" height="300" width="300" />
