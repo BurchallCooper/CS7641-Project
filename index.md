@@ -44,7 +44,7 @@ The primary challenge in this architecture is implementing the target detection 
 
 The origninal algorithm was trained on two manually annotated datasets of 1000 images developed by Google[4], with each of the images having 1–2 people in the scene.  The first dataset consisted of a wide variety of human poses with a wide range of variations in appearance, clothing, human pose, illumination, image quality, and background while the second was comprised of yoga/fitness poses only.  For this project, the network training was achieved through tranfer learning where the base network was the Google trained network, and we repurposed the learned features, or transfered them, to a our network for the target dataset.
 
-For testing the Fallen People Data Set (FPDS)[7], which consists of 6982 images, with a total of 5023 falls and 2275 non falls corresponding to people in conventional situations (standing up, sitting, lying on the sofa or bed, walking, etc).  Most all the images were captured in indoor environments
+Testing was conducted against the Fallen People Data Set (FPDS)[7], which consists of 6982 images, with a total of 5023 falls and 2275 non falls corresponding to people in conventional situations (standing up, sitting, lying on the sofa or bed, walking, etc).  Most all these images were captured in indoor environments.
 
 The test setup consisted of the 4 cameras mounted as shown in Figure 3 where the left and right cameras are mounted such that the world coordinates of the cameras have the same x-cooridinates and slightly offset y-cooridnates.  Achieving good alignment of the cameras was a significant challenge 
 and in practice would limit the performance of the system. As shown in the figure, a mannequin was used for calibration and test of the system.
@@ -85,7 +85,7 @@ The laser detection worked well indoors with varied lighting conditions.  Some t
 
 It was discovered that pose detection required the human target to occupy approximately 50% of the frame in either the x or y dimension.  The range of the current system is limited to under 4 meters.  The architecture of the targeting system will need to be modified to incorporate a preprossing stage to solve this problem.  This preprocessor would need to detect the target and zoom the image for the pose detector to work optimally.  With only electronic zoom the distance could be increased to 20 meters with the existing cameras.  Optical zoom would be needed for long distances.
 
-
+Testing against the FPDS[7] dataset  resulted in one shot detection in 57% of the images.  On the surface this would appear to be a low number, but these were very difficult to detect occluded poses.  Additionally, this was one shot and the application would be running at 30 frames per second making the likelihood of detection much more likely for a target that is in motion.  With the confidence level set to 0.5, the neural network worked very well in correctly finding the pose. For 1708 images where a person was detected, there was only 1 failure where the pose was incorrectly formed.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="Targeting" height="800" width="800" /></p>
 <p align="center"> Figure 7: Example of Targeting </p> 
@@ -93,7 +93,6 @@ It was discovered that pose detection required the human target to occupy approx
 ## Discussion
 
 This project incorporates both recent advances in deep learning applied to real-time human pose estimation, and classical techniques for unsupervised learning to implement targeting for a complex security system.  The targeting system requires accurate real-time identification of the subject’s entire skeletal frame, single target isolation, accurate distance measurement to the target, and accurate aiming.
-
 
 
 ## References
