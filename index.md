@@ -87,10 +87,9 @@ It was discovered that pose detection required the human target to occupy approx
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni.gif" alt="Targeting" height="450" width="450" />
- Figure 7: First example of targeting
  <img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/zay3.gif" alt="Targeting" height="450" width="450" />
- Figure 7: First example of targeting
-</p>
+ </p>
+<p align="center"> Figure 7: First example of targeting </p>
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/zay3.gif" alt="Targeting" height="400" width="400" /></p>
 <p align="center"> Figure 7: First example of targeting </p>
