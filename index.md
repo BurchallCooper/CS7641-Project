@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Advances in deep learning allow for accurate real-time pose estimation[1][2][3] which can be applied to security applications for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This project describes the full system implementation focusing primarily on the targeting design of the system using deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  
+Advances in deep learning have resulted in accurate real-time pose estimation[1][2][3] techniques that can be applied to security systems for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This project describes an implementation of such a security system.  Our work primarily focuses on the targeting aspect of the system using deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  
 
 The architecture of the security system described in this paper has 3 distinct functions: Threat Detection, Targeting, and Threat Neutralization.
 
@@ -17,7 +17,7 @@ The architecture of the security system described in this paper has 3 distinct f
 <p align="center"> Figure 1: System Design </p>
 
 
-Figure 1 illustrates the system architecture.  Two sets of cameras are used.  One set is for stereo pose estimation to provide ranging for the vision system, and the second set is outfitted with optical bandpass filters centered at the laser frequency to filter out ambient light.  The second set also provides ranging data and control of the weapon’s gimble.  The 532 nm targeting laser is mounted to the barrel of the weapon. 
+Figure 1 illustrates the system architecture.  Two sets of cameras are used.  One set is for stereo pose estimation to provide ranging for the vision system, and the second set is outfitted with optical bandpass filters centered at the laser frequency to filter out ambient light.  The second set also provides ranging data and control of the weapon’s gimbal.  The 532 nm targeting laser is mounted to the barrel of the weapon. 
 
 This approach allows for the cameras to be mounted on a stationary platform and only the targeting laser and weapon move for targeting.  The advantage is the sensitive camera equipment is protected, but at the expense of making the system more complicated.  
 
@@ -29,11 +29,11 @@ The operation of the vision system and laser system are independent and the outp
 4.	The disparity between each skeletal component in the image pairs allows the distance to that skeletal component to be calculated. (See Figure 2 below for stereo depth calculation)
 
 Similarly, for the laser cameras:
-1.	Each laser camera simultaneously captures the image of the target. Similar to the vision cameras, two images are required to use stereo techniques to calculate the range.  
-2.	The laser target is detected in the image.  In this case the range is to the detected laser point in the image which is unambiguous as the detectpr only returns one point for each image.
+1.	Each laser camera simultaneously captures the image of the target. As in the case of the vision cameras, two images are required to use stereo techniques to calculate the range.  
+2.	The laser target is detected in the image.  In this case, unlike the vision system just described, the target is unambiguous as there is only one target being designated by the laser at a time, i.e only one point will be detected in each image.
 3.	The disparity between the laser target in each image allows the distance to the target to be calculated.  This is identical to the vision case.
 
-Now that we have the ouptuts from the vision and the laser system, we have 3-d coordinate data for each skeletal component and 3-d coordinate data for the laser target.  In a full system implementation, a control system would minimize the error between vision and laser coordinates by controlling the gimbal and the target would be acquired.  In this proof of concept we are simply detecting that the laser and selected vision component are aligned.
+Now that we have the ouptuts from the vision subsystem and the laser subsystem, we have 3-d coordinate data for each skeletal component and 3-d coordinate data for the laser target.  In a full system implementation, a control system would minimize the error between vision and laser coordinates by controlling the gimbal and the target would be acquired.  In this proof of concept we are simply detecting that the laser and selected vision component are aligned.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/StereoEquation.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 2: Stereo Equation Derivation[6] </p>
@@ -42,19 +42,18 @@ The primary challenge in this architecture is implementing the target detection 
 
 ## Data Collection and Neural Network Training
 
-The origninal algorithm was trained on two manually annotated datasets of 1000 images developed by Google[4], with each of the images having 1–2 people in the scene.  The first dataset consisted of a wide variety of human poses with a wide range of variations in appearance, clothing, human pose, illumination, image quality, and background while the second was comprised of yoga/fitness poses only.  For this project, the network training was achieved through tranfer learning where the base network was the Google trained network, and we repurposed the learned features, or transfered them, to a our network for the target dataset.
+The origninal Convolutional Neural Network (CNN) was trained on two manually annotated datasets of 1000 images developed by Google[4], with each of the images having 1–2 people in the scene.  The first dataset consisted of a wide variety of human poses with a wide range of variations in appearance, clothing, human pose, illumination, image quality, and background while the second was comprised of yoga/fitness poses only.  For this project, the network training was achieved through tranfer learning where the base network was the Google trained network, and we repurposed the learned features, or transfered them, to a our network for the target dataset.
 
 Neural Network testing was conducted against two different databases:  Microsoft Common Objects in Context (COCO)[5] and Fallen People Data Set (FPDS)[7].  COCO is a large-scale object detection, segmentation, and captioning dataset with over 250,000 images where most of the images in outdoor environments.  FPDS on the other hand, consists of 6982 images, with a total of 5023 falls and 2275 non falls corresponding to people in conventional situations (standing up, sitting, lying on the sofa or bed, walking, etc). Most of the FPDS images were captured in indoor environments.
 
-The test setup consisted of the 4 cameras mounted as shown in Figure 3 where the left and right cameras are mounted such that the world coordinates of the cameras have the same x-cooridinates and slightly offset y-cooridnates.  Achieving good alignment of the cameras was a significant challenge 
-and in practice would limit the performance of the system. As shown in the figure, a mannequin was used for calibration and test of the system.
+The test setup consisted of the 4 cameras mounted as shown in Figure 3 where the left and right cameras are mounted such that the world coordinates of the cameras have the same x-cooridinates and slightly offset y-cooridnates.  Achieving good alignment of the cameras was a significant challenge and in practice would limit the performance of the system. As shown in the figure, a mannequin was used for calibration and test of the system.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/TestSetup.jpg" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 3: Test Setup </p> 
 
 ## Methods
 
-For this project, BlazePose[4], a convolutional neural network developed by Google and architected for human pose estimation was selected to provide the pose estimations for each of the stereo camera pairs.  This solution was developed for real-time inference and requires minimal computational resources. 
+For this project, BlazePose[4], a CNN developed by Google and architected for human pose estimation was selected to provide the pose estimations for each of the stereo camera pairs.  This solution was developed for real-time inference and requires minimal computational resources. 
 
 Much of the research work done to date for human body pose estimation implements the COCO topology[5], which consists of 17 landmarks across the torso, arms, legs, and face. The Google implementation expands this number to 33 body keypoints.  For this project 2 instances of the algorithm generate over 30 frames per second in real-time.
 
@@ -68,7 +67,7 @@ The pose estimation component of the google system predicts the location of the 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/PosePoints.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 5: Keypoint topology[5] </p>
 
-The network consists a a combined heatmap, offset, and regression approach, as shown in Figure 6.  The heatmap and offset loss is used only in the training stage and removes the corresponding output layers from the model before running the inference.  The heatmap supervises the lightweight embedding, which is then utilized by the regression encoder network.  
+The network consists a a combined heatmap, offset, and regression approach, as shown in Figure 6.  The heatmap and offset loss is used only in the training stage and removes the corresponding output layers from the model before running the inference stage.  The heatmap supervises the lightweight embedding, which is then utilized by the regression encoder network.  
 
 The Google implementation actively utilize skip-connections between all the stages of the network to achieve a balance between high-level and low-level features. However, the gradients from the regression encoder are not propagated back to the heatmap-trained features (note the gradient-stopping connections in Figure 6). 
 
@@ -83,7 +82,7 @@ The experimental setup is only intended to test the operation of the neural netw
 
 The laser detection worked well indoors with varied lighting conditions.  Some testing was done with outdoor lighting conditions.  It was noted that with outdoor bright sunlight that has significant green spectral content this approach does not work well.  However, green lasers were all that were readily available, and worked well for this proof of concept. 
 
-It was discovered that pose detection required the human target to occupy approximately 25% of the frame in either the x or y dimension.  The range of the current system is limited to under 4 meters.  The architecture of the targeting system will need to be modified to incorporate a preprossing stage to solve this problem.  This preprocessor would need to detect the target and zoom the image for the pose detector to work optimally.  With only electronic zoom the distance could be increased to 20 meters with the existing cameras.  Optical zoom would be needed for long distances.
+It was discovered that pose detection required the human target to occupy approximately 25% of the frame in either the x or y dimension.  The range of the current system is limited to under 4 meters.  The architecture of the targeting system will need to be modified to incorporate a preprossing stage to solve this problem.  This preprocessor would need to detect the target and zoom the image for the pose detector to work optimally.  With only electronic zoom, the distance could be increased to 20 meters with the existing cameras.  Optical zoom would be needed for long distances.
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni2.gif" alt="Targeting" height="400" width="400" />
