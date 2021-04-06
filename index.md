@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Advances in deep learning have resulted in accurate real-time pose estimation[1][2][3] techniques that can be applied to security systems for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This project describes an implementation of such a security system.  Our work primarily focuses on the targeting aspect of the system using deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  
+Advances in deep learning have resulted in accurate real-time pose estimation [1][2][3] techniques that can be applied to security systems for the deterrence of intruders with potential hostile intentions, and the non-lethal neutralization of these hostile actors.  This project describes an implementation of such a security system.  Our work primarily focuses on the targeting aspect of the system using deep learning for pose estimation, stereography for ranging, and laser designation to implement a closed loop targeting system.  
 
 The architecture of the security system described in this paper has 3 distinct functions: Threat Detection, Targeting, and Threat Neutralization.
 
@@ -22,7 +22,7 @@ Figure 1 illustrates the system architecture.  Two sets of cameras are used.  On
 This approach allows for the cameras to be mounted on a stationary platform and only the targeting laser and weapon move for targeting.  The advantage is the sensitive camera equipment is protected, but at the expense of making the system more complicated.  
 
 ## Problem definition 
-The operation of the vision system and laser system are independent and the output results are combined for targeting. The sequence of events for the vison system is as follows:
+The operation of the vision system and laser system are independent, and the output results are combined for targeting. The sequence of events for the vison system is as follows:
 1.	Each vision camera simultaneously captures the image of the target. Two images are required to use stereo techniques to calculate the range to the target.
 2.	Human skeletal poses are extracted from the stereo images.  The idea is to be able to accurately target any portion of the human body.
 3.	The images are grouped in pairs using non-supervised learning. An image may have a large number of potential targets and the stereo calculation requires accurate pairing of the targets for ranging.  The nearest neighbor of the vector created by the pose estimates pairs the data between images.
@@ -33,7 +33,7 @@ Similarly, for the laser cameras:
 2.	The laser target is detected in the image.  In this case, unlike the vision system just described, the target is unambiguous as there is only one target being designated by the laser at a time, i.e only one point will be detected in each image.
 3.	The disparity between the laser target in each image allows the distance to the target to be calculated.  This is identical to the vision case.
 
-Now that we have the ouptuts from the vision subsystem and the laser subsystem, we have 3-d coordinate data for each skeletal component and 3-d coordinate data for the laser target.  In a full system implementation, a control system would minimize the error between vision and laser coordinates by controlling the gimbal and the target would be acquired.  In this proof of concept we are simply detecting that the laser and selected vision component are aligned.
+Now that we have the outputs from the vision subsystem and the laser subsystem, we have 3-d coordinate data for each skeletal component and 3-d coordinate data for the laser target.  In a full system implementation, a control system would minimize the error between vision and laser coordinates by controlling the gimbal and the target would be acquired.  In this proof of concept we are simply detecting that the laser and selected vision component are aligned.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/StereoEquation.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 2: Stereo Equation Derivation[6] </p>
@@ -42,27 +42,27 @@ The primary challenge in this architecture is implementing the target detection 
 
 ## Data Collection and Neural Network Training
 
-The origninal Convolutional Neural Network (CNN) was trained on two manually annotated datasets of 1000 images developed by Google[4], with each of the images having 1–2 people in the scene.  The first dataset consisted of a wide variety of human poses with a wide range of variations in appearance, clothing, human pose, illumination, image quality, and background while the second was comprised of yoga/fitness poses only.  For this project, the network training was achieved through tranfer learning where the base network was the Google trained network, and we repurposed the learned features, or transfered them, to a our network for the target dataset.
+The original Convolutional Neural Network (CNN) was trained on two manually annotated datasets of 1000 images developed by Google [4], with each of the images having 1–2 people in the scene.  The first dataset consisted of a wide variety of human poses with a wide range of variations in appearance, clothing, human pose, illumination, image quality, and background while the second was comprised of yoga/fitness poses only.  For this project, the network training was achieved through tranfer learning where the base network was the Google trained network, and we repurposed the learned features, or transferred them, to our network for the target dataset.
 
-Neural Network testing was conducted against two different databases:  Microsoft Common Objects in Context (COCO)[5] and Fallen People Data Set (FPDS)[7].  COCO is a large-scale object detection, segmentation, and captioning dataset with over 250,000 images where most of the images in outdoor environments.  FPDS on the other hand, consists of 6982 images, with a total of 5023 falls and 2275 non falls corresponding to people in conventional situations (standing up, sitting, lying on the sofa or bed, walking, etc). Most of the FPDS images were captured in indoor environments.
+Neural Network testing was conducted against two different databases:  Microsoft Common Objects in Context (COCO)[5] and Fallen People Data Set (FPDS)[7].  COCO is a large-scale object detection, segmentation, and captioning dataset with over 250,000 images where most of the images in outdoor environments.  FPDS on the other hand, consists of 6982 images, with a total of 5023 falls and 2275 non falls corresponding to people in conventional situations (standing up, sitting, lying on the sofa or bed, walking, etc.). Most of the FPDS images were captured in indoor environments.
 
-The test setup consisted of the 4 cameras mounted as shown in Figure 3 where the left and right cameras are mounted such that the world coordinates of the cameras have the same x-cooridinates and slightly offset y-cooridnates.  Achieving good alignment of the cameras was a significant challenge and in practice would limit the performance of the system. As shown in the figure, a mannequin was used for calibration and test of the system.
+The test setup consisted of the 4 cameras mounted as shown in Figure 3 where the left and right cameras are mounted such that the world coordinates of the cameras have the same x-cooridinates and slightly offset y-coordinates.  Achieving good alignment of the cameras was a significant challenge and in practice would limit the performance of the system. As shown in the figure, a mannequin was used for calibration and test of the system.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/TestSetup.jpg" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 3: Test Setup </p> 
 
 ## Methods
 
-For this project, BlazePose[4], a CNN developed by Google and architected for human pose estimation was selected to provide the pose estimations for each of the stereo camera pairs.  This solution was developed for real-time inference and requires minimal computational resources. 
+For this project, BlazePose [4], a CNN developed by Google and architected for human pose estimation was selected to provide the pose estimations for each of the stereo camera pairs.  This solution was developed for real-time inference and requires minimal computational resources. 
 
-Much of the research work done to date for human body pose estimation implements the COCO topology[5], which consists of 17 landmarks across the torso, arms, legs, and face. The Google implementation expands this number to 33 body keypoints.  For this project 2 instances of the algorithm generate over 30 frames per second in real-time.
+Much of the research work done to date for human body pose estimation implements the COCO topology [5], which consists of 17 landmarks across the torso, arms, legs, and face. The Google implementation expands this number to 33 body keypoints.  For this project 2 instances of the algorithm generate over 30 frames per second in real-time.
 
 During inference, a detector-tracker setup is employed (see Figure 4), which has good real-time performance on a variety of landmark prediction tasks. The Google pipeline consists of a lightweight body pose detector followed by a pose tracker network. The tracker predicts keypoint coordinates, the presence of the person on the current frame, and the refined region of interest for the current frame. When the tracker indicates that there is no human present, the detector network is run on the next frame. [4]
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/InferencePipeline.png" alt="system drawing" height="300" width="400" /></p>
 <p align="center"> Figure 4: Inference Pipeline [4]</p>
 
-The pose estimation component of the google system predicts the location of the 33 person keypoints, and uses the person alignment proposal provided by the first stage of the pipeline.
+The pose estimation component of the google system predicts the location of the 33 person keypoints and uses the person alignment proposal provided by the first stage of the pipeline.
 
 <p align="center"><img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/PosePoints.png" alt="system drawing" height="400" width="400" /></p>
 <p align="center"> Figure 5: Keypoint topology[5] </p>
@@ -76,9 +76,9 @@ The Google implementation actively utilize skip-connections between all the stag
 
 ## Results
 
-Figures 7 and 8 demonstrates the operation of the proof of concept model.  The top two images are stereo vission images, and the bottom two are the stereo laser images.  Figure 7 demonstrates operation with a fixed target while moving a laser near the selected landmarks which is just the torso of the mannequin in this case.  Figue 8 dmonstrates operation where the laser is fixed and target is moving.  In real time the detected human pose skeletons in the camera's view is overlayed on the subject with the 33 Key Points labeled. When the laser targets the area near the yellow dot in the image, the dot turns red and a red circle is displayed around the dot. 
+Figures 7 and 8 demonstrates the operation of the proof-of-concept model.  The top two images are stereo vision images, and the bottom two are the stereo laser images.  Figure 7 demonstrates operation with a fixed target while moving a laser near the selected landmarks which is just the torso of the mannequin in this case.  Figure 8 demonstrates operation where the laser is fixed, and the target is moving.  In real time the detected human pose skeletons in the camera's view is overlayed on the subject with the 33 Key Points labeled. When the laser targets the area near the yellow dot in the image, the dot turns red, and a red circle is displayed around the dot. 
 
-The experimental setup is only intended to test the operation of the neural network and the targeting of a particular human pose landmark.  Ultimately, the objective is to mount the laser on a gimbal and have a control system adjust the aiming of the laser to continuosly track the targeted pose landmark.  Adding the gimbal and the control loop are beyond the scope of this phase of the project.
+The experimental setup is only intended to test the operation of the neural network and the targeting of a particular human pose landmark.  Ultimately, the objective is to mount the laser on a gimbal and have a control system adjust the aiming of the laser to continuously track the targeted pose landmark.  Adding the gimbal and the control loop are beyond the scope of this phase of the project.
 
 The laser detection worked well indoors with varied lighting conditions.  Some testing was done with outdoor lighting conditions.  It was noted that with outdoor bright sunlight that has significant green spectral content this approach does not work well.  However, green lasers were all that were readily available, and worked well for this proof of concept. 
 
@@ -90,9 +90,9 @@ It was discovered that pose detection required the human target to occupy approx
  </p>
 <p align="center"> Figure 7: First example of targeting </p>
 
-Testing against the FPDS[7] dataset  resulted in one shot detection in 57% of the images.  On the surface this would appear to be a low number, but these were very difficult to detect occluded poses.  Additionally, this was one shot and the application would be running at 30 frames per second making the likelihood of detection much more likely for a target that is in motion.  With the confidence level set to 0.5, the neural network worked very well in correctly finding the pose. For 1708 images where a person was detected, there was only 1 failure where the pose was incorrectly formed.
+Testing against the FPDS [7] dataset  resulted in one shot detection in 57% of the images.  On the surface this would appear to be a low number, but these were very difficult to detect occluded poses.  Additionally, this was one shot, in practice the application would be running at 30 frames per second making the likelihood of detection much more likely for a target that is in motion.  With the confidence level set to 0.5, the neural network worked very well in correctly finding the pose. For 1708 images where a person was detected, there was only 1 failure where the pose was incorrectly formed.
 
-Testing against COCO[5] was more problematic.  If there is a person present in the image, the pose detectpr works well in providing the pose estimate.  But, in scenes with no humans present, as illustrated in figure 9, the neural network will occasionally misclassify an inanimate object as human and provide a pose estimate.  In images with an animal present and no human the network may provide a human pose estimate for the animal.  The pose estimate for the rooster, also in figure 9, illustrates this problem.  
+Testing against COCO [5] was more problematic.  If there is a person present in the image, the pose detector works well in providing the pose estimate.  But, in scenes with no humans present, as illustrated in figure 9, the neural network will occasionally misclassify an inanimate object as human and provide a pose estimate.  In images with an animal present and no human the network may provide a human pose estimate for the animal.  The pose estimate for the rooster, also in figure 9, illustrates this problem.  
 
 <p align="center">
  <img src="https://github.com/BurchallCooper/CS7641-Project/blob/gh-pages/annotated_image490.png?raw=true" alt="Targeting" height="300" width="300" />
