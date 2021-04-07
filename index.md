@@ -88,6 +88,7 @@ It was discovered that pose detection required the human target to occupy approx
   <img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni2.gif" alt="Targeting" height="600" width="600" />
 </p>
 <p align="center"> Figure 7: Fixed Target Moving Laser </p>
+<p align="center">
  <img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/zay3.gif" alt="Targeting" height="600" width="600" />
  </p>
 <p align="center"> Figure 8: Fixed Laser Moving Target </p>
