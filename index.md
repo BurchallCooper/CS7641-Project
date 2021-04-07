@@ -76,7 +76,7 @@ The Google implementation actively utilize skip-connections between all the stag
 
 ## Results
 
-Figures 7 and 8 demonstrates the operation of the proof-of-concept model.  The top two images are stereo vision images, and the bottom two are the stereo laser images.  Figure 7 demonstrates operation with a fixed target while moving a laser near the selected landmarks which is just the torso of the mannequin in this case.  Figure 8 demonstrates operation where the laser is fixed, and the target is moving.  In real time the detected human pose skeletons in the camera's view is overlayed on the subject with the 33 Key Points labeled. When the laser targets the area near the yellow dot in the image, the dot turns red, and a red circle is displayed around the dot. 
+Figures 7 and 8 demonstrate the operation of the proof-of-concept model.  The top two images are stereo vision images, and the bottom two are the stereo laser images.  Figure 7 demonstrates operation with a fixed target while moving a laser near the selected landmarks, which is just the torso of the mannequin in this case.  Figure 8 demonstrates operation where the laser is fixed, and the target is moving.  In real time the detected human pose skeletons in the camera's view is overlayed on the subject with the 33 Key Points labeled. When the laser targets the area near the yellow dot in the image, the dot turns red, and a red circle is displayed around the dot. 
 
 The experimental setup is only intended to test the operation of the neural network and the targeting of a particular human pose landmark.  Ultimately, the objective is to mount the laser on a gimbal and have a control system adjust the aiming of the laser to continuously track the targeted pose landmark.  Adding the gimbal and the control loop are beyond the scope of this phase of the project.
 
@@ -85,10 +85,13 @@ The laser detection worked well indoors with varied lighting conditions.  Some t
 It was discovered that pose detection required the human target to occupy approximately 25% of the frame in either the x or y dimension.  The range of the current system is limited to under 4 meters.  The architecture of the targeting system will need to be modified to incorporate a preprossing stage to solve this problem.  This preprocessor would need to detect the target and zoom the image for the pose detector to work optimally.  With only electronic zoom, the distance could be increased to 20 meters with the existing cameras.  Optical zoom would be needed for long distances.
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni2.gif" alt="Targeting" height="400" width="400" />
- <img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/zay3.gif" alt="Targeting" height="400" width="400" />
+ <img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/manni2.gif" alt="Targeting" height="600" width="600" />
+</p>
+<p align="center"> Figure 7: Fixed Target Moving Laser </p>
+ 
+ <img src="https://raw.githubusercontent.com/BurchallCooper/CS7641-Project/gh-pages/zay3.gif" alt="Targeting" height="600" width="600" />
  </p>
-<p align="center"> Figure 7: First example of targeting </p>
+<p align="center"> Figure 8: Fixed Laser Moving Target </p>
 
 Testing against the FPDS [7] dataset  resulted in one shot detection in 57% of the images.  On the surface this would appear to be a low number, but these were very difficult to detect occluded poses.  Additionally, this was one shot, in practice the application would be running at 30 frames per second making the likelihood of detection much more likely for a target that is in motion.  With the confidence level set to 0.5, the neural network worked very well in correctly finding the pose. For 1708 images where a person was detected, there was only 1 failure where the pose was incorrectly formed.
 
