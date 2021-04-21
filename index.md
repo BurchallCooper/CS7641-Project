@@ -106,7 +106,7 @@ Testing against COCO [5] was more problematic.  If there was a person present in
 
 ## Discussion
 
-This project incorporates both recent advances in deep learning applied to real-time human pose estimation, and classical techniques for unsupervised learning to implement targeting for a complex security system.  The targeting system requires accurate real-time identification of the subject’s entire skeletal frame, single target isolation, accurate distance measurement to the target, and accurate aiming.  ..... to be completed for the final submission
+This project incorporated both recent advances in deep learning applied to real-time human pose estimation, and classical techniques for unsupervised learning to implement targeting for a complex security system.  The targeting system required accurate real-time identification of the subject’s entire skeletal frame, single target isolation, accurate distance measurement to the target, and accurate aiming.  This proof-of-concept suggests that the system is feasibile.  However, much better reliability in the CNN, improved laser targeting, and better accuracy in aiming all would be required in a production system.
 
 
 ## References
