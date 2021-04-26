@@ -119,4 +119,9 @@ This project incorporated both recent advances in deep learning applied to real-
 6.    F. Dellaert, "Introduction to Computer Vision", Georgia Tech CS 6476 Fall 2020 edition 
 7.    M. Antonello,  C. Antonello, M. Marco, P. Marco, M. Emanuele, "Fast and Robust detection of fallen people from a mobile robot", Intelligent Robots and Systems (IROS), 2017 IEEE/RSJ International Conference, http://agamenon.tsc.uah.es/Investigacion/gram/papers/fall_detection/
 
+## Contributions
+
+William B. Cooper  - Responsible for the contributions that were outstanding.
+Jacob A. Rowe - Responsible for the contributions that the professor or any of the TA's did not like for any reason.
+
 [edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md)    
