@@ -123,6 +123,7 @@ This project incorporated both recent advances in deep learning applied to real-
 
 - William B. Cooper  - Responsible for the portions of this project that were outstanding.
 - Jacob A. Rowe - Responsible for the portions of this project that the professor or any of the TA's did not like for any reason.
+
 [last edit by William B. Cooper ;)]
 
 [edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md)    
