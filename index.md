@@ -121,7 +121,8 @@ This project incorporated both recent advances in deep learning applied to real-
 
 ## Contributions
 
-William B. Cooper  - Responsible for the contributions that were outstanding.//
+William B. Cooper  - Responsible for the contributions that were outstanding.
+
 Jacob A. Rowe - Responsible for the contributions that the professor or any of the TA's did not like for any reason.
 
 [edit](https://github.com/BurchallCooper/CS7641-Project/edit/gh-pages/index.md)    
